@@ -1,0 +1,67 @@
+.reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f2f2f2; 
+}
+
+.form-container {
+  border: 5px solid #BB1C1C;
+  background-color: white; 
+  min-height: 600px;
+  flex-shrink: 0;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
+.form-container-2 {
+  border: 5px solid #BB1C1C;
+  background-color: white; 
+  min-height: 600px;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container-3 {
+  border: 5px solid #BB1C1C;
+  background-color: white; 
+  min-height: 600px;
+  flex-shrink: 0;
+  /* width:90%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.class-header {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.buttons-container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.staticReview-container {
+  width: 100%;
+  min-height: 600px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}

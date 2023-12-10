@@ -1,0 +1,24 @@
+version: "3.2"
+
+services:
+  backend:
+    restart: always
+    container_name: backend
+    command: bash -c "python rateMyCourse/manage.py runserver 0.0.0.0:8000"
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+
+  frontend:
+    restart: always
+    container_name: frontend
+    build:
+      context: ./Frontend/rate_my_course
+      dockerfile: Dockerfile
+    stdin_open: true
+    ports:
+      - "80:3000"
+    depends_on:
+      - backend

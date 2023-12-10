@@ -1,0 +1,163 @@
+
+.arrow-left{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+
+}
+.user-image {
+    width: 100px;
+    height: 100px;
+}
+
+.nav-bar {
+    display: flex;
+    /* flex-direction: row;
+    justify-content: space-around; */
+    /* align-items: center; */
+    /* padding-left: 30px;
+    padding-right: 30px; */
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.content {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.content2 {
+    padding-left: 30px;
+}
+
+.nav-bar-item {
+    cursor: pointer;
+}
+
+.nav-bar-item.active2 {
+    border-bottom: 2px solid #BF3127; 
+}
+
+.new-review-button {
+    border: 2px solid #BF3127;
+    background-color: white;
+    color: #BF3127;
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.review {
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.review-information {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid #BF3127;
+    width: 100%;
+}
+
+.edit-image {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.delete-image {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.icons {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.thumbs-down {
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.courses {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.course {
+    width: 100%;
+    padding-right: 20px;
+}
+
+.course-information {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.bookmark {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.header{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 50%;
+    height: 50%;
+}
+
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height:100%;
+    margin: 0;
+    overflow:auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000;
+}
+
+.save-button {
+    color: greenyellow;
+    padding-left: 10px;
+}
+
+.discard-button {
+    color: red;
+    padding-left: 10px;
+}
