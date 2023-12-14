@@ -49,8 +49,7 @@ useEffect(() => {
 
       {/* Banner */}
       <div className='bg-banner bg-cover flex flex-col items-center justify-center 
-                      w-full 
-                      p-20 xs:gap-y-2 gap-y-10'>
+                      h-60 w-full p-4 md:p-10 gap-y-4 md:gap-y-10'>
 
       
         {/* Title */}
@@ -61,7 +60,7 @@ useEffect(() => {
         {/* Search */}
             <input
                 className="text-secondary focus:outline-none focus:shadow-outline rounded-lg py-1 px-4
-                          w-[70%] md-[60%] lg:w-[50%] xl:w-[40%] h-10" 
+                          w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-10 " 
                 id="search"
                 type="text"
                 value={searchInput}

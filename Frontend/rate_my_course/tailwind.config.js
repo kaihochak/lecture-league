@@ -19,6 +19,9 @@ module.exports = {
       backgroundImage: {
         'banner': "url('./resources/banner.jpg')",
       },
+      screens: {
+        "xs": "380px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
