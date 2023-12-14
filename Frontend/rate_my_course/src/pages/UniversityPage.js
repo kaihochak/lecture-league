@@ -159,7 +159,7 @@ function UniversityPage() {
                                 <select 
                                     value={courseCode} 
                                     onChange={e => setCourseCode(e.target.value)}
-                                    className='border-2 border-red-600 rounded-full p-1 lg:p-3 lg:text-lg text-sm'
+                                    className='border-2 border-tertiary rounded-full p-1 lg:p-3 lg:text-lg text-sm'
                                 >
                                     <option value='----'>----</option>
                                     {courseNames.map((name, index) => (
@@ -172,7 +172,7 @@ function UniversityPage() {
                                 <select 
                                     value={courseNumber} 
                                     onChange={e => setCourseNumber(e.target.value)}
-                                    className='border-2 border-red-600 rounded-full p-1 lg:p-3 lg:text-lg text-sm'
+                                    className='border-2 border-tertiary rounded-full p-1 lg:p-3 lg:text-lg text-sm'
                                 >
                                     <option value='All'>All</option>
                                     <option value='5'>5xx</option>
@@ -187,7 +187,7 @@ function UniversityPage() {
                                 <select 
                                     value={filter} 
                                     onChange={e => setFilter(e.target.value)}
-                                    className='border-2 border-red-600 rounded-full p-1 lg:p-3 lg:text-lg text-sm lg:w-7/10 w-1/2'
+                                    className='border-2 border-tertiary rounded-full p-1 lg:p-3 lg:text-lg text-sm lg:w-7/10 w-1/2'
                                 >
                                     <option value='-----'>-----</option>
                                     <option value='Workload'>Workload - Low to High</option>

@@ -15,7 +15,7 @@ function RatingSet ({label, rating, setRating}) {
         {levels.map((level) => (
           <button
             key={level}
-            className={`h-8 w-8 rounded-full ${rating >= level ? 'bg-red-500' : 'bg-red-200'}`}
+            className={`h-8 w-8 rounded-full ${rating >= level ? 'bg-secondary' : 'bg-secondary'}`}
             onClick={() => setRating(level)}
             aria-label={`Set ${label} to ${level}`}
           />
@@ -129,20 +129,20 @@ function Reviews() {
                     <input
                         type="text"
                         value={university_name}
-                        className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min"
+                        className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                         placeholder="University"
                     />
                     <input
                         type="text"
                         value={courseName}
-                        className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min"
+                        className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                         placeholder="Course Code"
                     />
                     <input
                         type="text"
                         value={professor}
                         onChange={(e) => setProfessor(e.target.value)}
-                        className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min"
+                        className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                         placeholder="Professor's Name"
                     />
                 </div>
@@ -158,18 +158,18 @@ function Reviews() {
                 <textarea
                         value={comments}
                         onChange={(e) => setComments(e.target.value)}
-                        className='form-input flex-grow py-2 px-4 border-2 border-red-600 my-4 mx-5 sm:min-h-[200px]'
+                        className='form-input flex-grow py-2 px-4 border-2 border-tertiary my-4 mx-5 sm:min-h-[200px]'
                         placeholder='What do you want others to know about this class?'
                 ></textarea>
                 </div>
             </div>
             <div className='buttons-container'>
                 <button 
-                className='rounded-xl h-20 w-28 bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-900 m-3'
+                className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
                 onClick={() => navigate(-1)}>
                     Cancel</button>
                 <button 
-                className='rounded-xl h-20 w-28 bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-900 m-3'
+                className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
                 onClick={handleSaveChanges}>
                     Submit</button>
             </div>

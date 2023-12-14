@@ -1,9 +1,7 @@
 import React, { useState, useEffect} from 'react'
-import rateMyCourse_white_logo from '../resources/logo-white.png';
 import UniDiv from '../components/UniDiv';
 import Header from '../components/Header';
 import '../styles/LandingPage.css';
-// import SearchComponent from '../components/SearchComponent'; 
 
 function LandingPage() {
   const [searchInput, setSearchInput] = useState('');
@@ -46,24 +44,36 @@ useEffect(() => {
 }, [isChecked, searchResults]); // Note: We use searchResults here, not displayResults
 
   return (
-    <div className='flex flex-col items-center justify-center mb-5'>
+    <div className='flex flex-col font-Montserrat items-center justify-center mb-5'>
       <Header />
-      <img src={rateMyCourse_white_logo} className=' max-h-60' alt='logo' />
+
+      {/* Banner */}
+      <div className='bg-banner bg-cover flex flex-col items-center justify-center 
+                      w-full 
+                      p-20 xs:gap-y-2 gap-y-10'>
+
+      
+        {/* Title */}
+        <div className='flex flex-col items-center justify-center'>
+          <h1 className='text-m-l md:text-2xl text-primary text-center'>Find Your University</h1>
+        </div>
+
         {/* Search */}
-      <div className="flex items-center border-2 border-red-500 shadow-lg h-14">
-          <input
-              className="flex-1 px-6 h-full rounded-full text-gray-700 leading-tight focus:outline-none"
-              id="search"
-              type="text"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              placeholder={"Search University"}
-          />
+            <input
+                className="text-secondary focus:outline-none focus:shadow-outline rounded-lg py-1 px-4
+                          w-[70%] md-[60%] lg:w-[50%] xl:w-[40%] h-10" 
+                id="search"
+                type="text"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                placeholder={"Search University"}
+            />
       </div>
 
-      <div className='flex justify-between text-sm mt-5 w-3/4 md:w-4/12'>
+      <div className='flex justify-between text-sm 
+                      w-[70%] md-[60%] lg:w-[50%] xl:w-[40%] m-2 pt-4'>
         {/* number of results */}
-        <p className=' mt-1'>{displayResults.length} Results</p>
+        <p className='mt-1'>{displayResults.length} Results</p>
 
         {/* sort by A-Z */}
         <div className='flex justify-between'>
@@ -71,7 +81,7 @@ useEffect(() => {
             <input type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
             <span className="slider round"></span>
           </label>
-          <p className=' mt-1 ml-2'>Sort A-Z</p>
+          <p className='mt-1 ml-2'>Sort A-Z</p>
         </div>
       </div>
 

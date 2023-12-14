@@ -11,7 +11,7 @@ function RatingSet ({label, rating, setRating}) {
         {levels.map((level) => (
           <button
             key={level}
-            className={`h-8 w-8 rounded-full ${rating >= level ? 'bg-red-500' : 'bg-red-200'}`}
+            className={`h-8 w-8 rounded-full ${rating >= level ? 'bg-secondary' : 'bg-secondary'}`}
             onClick={() => setRating(level)}
             aria-label={`Set ${label} to ${level}`}
           />
@@ -38,21 +38,21 @@ export default function Review() {
                 type="text"
                 value={university}
                 onChange={(e) => setUniversity(e.target.value)}
-                className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min"
+                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                 placeholder="University"
               />
               <input
                 type="text"
                 value={courseCode}
                 onChange={(e) => setCourseCode(e.target.value)}
-                className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min"
+                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                 placeholder="Course Code"
               />
               <input
                 type="text"
                 value={professor}
                 onChange={(e) => setProfessor(e.target.value)}
-                className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min"
+                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                 placeholder="Professor's Name"
               />
           </div>
@@ -68,7 +68,7 @@ export default function Review() {
           <textarea
                 value={comments}
                 onChange={(e) => setComments(e.target.value)}
-                className='form-input flex-grow py-2 px-4 border-2 border-red-600 my-4 mx-5 sm:min-h-[200px]'
+                className='form-input flex-grow py-2 px-4 border-2 border-tertiary my-4 mx-5 sm:min-h-[200px]'
                 placeholder='What do you want others to know about this class?'
           ></textarea>
         </div>

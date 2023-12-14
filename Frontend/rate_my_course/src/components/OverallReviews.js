@@ -17,7 +17,7 @@ function RatingSet ({label, rating, setRating}) {
       {levels.map((level) => (
         <button
           key={level}
-          className={`h-8 w-8 rounded-full cursor-default ${rating >= level ? 'bg-red-600' : 'bg-red-200'}`}
+          className={`h-8 w-8 rounded-full cursor-default ${rating >= level ? 'bg-secondary' : 'bg-secondary'}`}
           aria-label={`Set ${label} to ${level}`}
         />
       ))}
@@ -117,7 +117,7 @@ function OverarallReviews({data, index}) {
 
     return (
         <div>
-            <div className='mt-6 bg-red-600 border-2 border-red-600 font-bold shadow-lg py-2 px-2 w-1/2 md:w-1/6'>
+            <div className='mt-6 bg-secondary border-2 border-tertiary font-bold shadow-lg py-2 px-2 w-1/2 md:w-1/6'>
                 <span className="text-md text-white text-center">Review #{index + 1}</span>
             </div>
 
@@ -130,21 +130,21 @@ function OverarallReviews({data, index}) {
                                 readOnly={true}
                                 type="text"
                                 value={university}
-                                className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min focus:outline-none cursor-default" 
+                                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min focus:outline-none cursor-default" 
                                 placeholder="University"
                             />
                             <input
                                 readOnly={true}
                                 type="text"
                                 value={course}
-                                className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min focus:outline-none cursor-default"
+                                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min focus:outline-none cursor-default"
                                 placeholder="Course Number"
                             />
                             <input
                                 readOnly={true}
                                 type="text"
                                 value={professor}
-                                className="form-input rounded-full py-2 px-4 border-2 border-red-600 my-4 mr-5 w-full md:w-min focus:outline-none cursor-default"
+                                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min focus:outline-none cursor-default"
                                 placeholder="Professor's Name"
                             />
                         </div>
@@ -163,7 +163,7 @@ function OverarallReviews({data, index}) {
                         <RatingSet label='Usefulness' rating={usefulness} />
                     </div>
 
-                    <div className='form-input flex-grow py-2 px-4 border-2 border-red-600 my-4 mx-5 sm:min-h-[200px]'>
+                    <div className='form-input flex-grow py-2 px-4 border-2 border-tertiary my-4 mx-5 sm:min-h-[200px]'>
                         {review}
                     </div>
 

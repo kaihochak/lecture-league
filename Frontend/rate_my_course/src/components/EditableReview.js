@@ -15,8 +15,8 @@ function RatingSet ({label, rating, setRating, editable}) {
         <button
           key={level}
           className={`h-8 w-8 rounded-full ${
-            (rating >= level && editable) ? 'bg-red-600' :
-            (rating <= level && editable) ? 'bg-red-200' :
+            (rating >= level && editable) ? 'bg-secondary' :
+            (rating <= level && editable) ? 'bg-secondary' :
             (rating >= level && !editable) ? 'bg-gray-600' :
             'bg-gray-400' // default background color if not editable or other conditions are not met
           } ${editable ? 'cursor-pointer' : 'cursor-default'}`}
@@ -213,7 +213,7 @@ function EditableReview({data, id, onDelete}) {
             type="text"
             value={university}
             onChange={handleUniversityChange}
-            className={`form-input rounded-full py-2 px-4 border-2 my-4 mr-5 w-full md:w-min ${editable ? 'border-red-600 cursor-text' : 'border-black cursor-default'}`}
+            className={`form-input rounded-full py-2 px-4 border-2 my-4 mr-5 w-full md:w-min ${editable ? 'border-tertiary cursor-text' : 'border-black cursor-default'}`}
             placeholder="University"
           />
           <input
@@ -221,7 +221,7 @@ function EditableReview({data, id, onDelete}) {
             type="text"
             value={course}
             onChange={handleCourseNameChange}
-            className={`form-input rounded-full py-2 px-4 border-2 my-4 mr-5 w-full md:w-min ${editable ? 'border-red-600 cursor-text' : 'border-black cursor-default'}`}
+            className={`form-input rounded-full py-2 px-4 border-2 my-4 mr-5 w-full md:w-min ${editable ? 'border-tertiary cursor-text' : 'border-black cursor-default'}`}
             placeholder="Course Code"
           />
           <input
@@ -229,7 +229,7 @@ function EditableReview({data, id, onDelete}) {
             type="text"
             value={professor}
             onChange={handleProfessorChange}
-            className={`form-input rounded-full py-2 px-4 border-2 my-4 mr-5 w-full md:w-min ${editable ? 'border-red-600 cursor-text' : 'border-black cursor-default'}`}
+            className={`form-input rounded-full py-2 px-4 border-2 my-4 mr-5 w-full md:w-min ${editable ? 'border-tertiary cursor-text' : 'border-black cursor-default'}`}
             placeholder="Professor's Name"
           />
           </div>
@@ -246,7 +246,7 @@ function EditableReview({data, id, onDelete}) {
             readOnly={!editable}
             value={comments}
             onChange={handleCommentsChange}
-            className={`form-input flex-grow py-2 px-4 border-2  my-4 mx-5 ${editable ? 'border-red-600 cursor-text' : 'border-black cursor-default'}`} 
+            className={`form-input flex-grow py-2 px-4 border-2  my-4 mx-5 ${editable ? 'border-tertiary cursor-text' : 'border-black cursor-default'}`} 
             style={{ backgroundColor: editable ? 'white' : '#EEEDED' } }
         />
       </div>

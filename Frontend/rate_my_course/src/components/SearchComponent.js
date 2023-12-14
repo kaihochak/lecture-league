@@ -14,7 +14,7 @@ const SearchComponent = ({ data, onSearchResults, placeholder }) => {
 
 
     return (
-        <div className="flex items-center border-2 border-red-500 shadow-lg h-14">
+        <div className="flex items-center border-2 border-tertiary shadow-lg h-14">
             <input
                 className="flex-1 px-6 h-full rounded-full text-gray-700 leading-tight focus:outline-none"
                 id="search"

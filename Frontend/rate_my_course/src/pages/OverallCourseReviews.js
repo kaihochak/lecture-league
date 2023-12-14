@@ -165,7 +165,7 @@ function OverallCourseReviews() {
                     <div className='w-1/3 ml-2'>
                         <select value={selectedProfessor} 
                             onChange={(e) => setSelectedProfessor(e.target.value)}
-                            className='border-2 border-red-600 rounded-full p-1'>
+                            className='border-2 border-tertiary rounded-full p-1'>
                             {professorsList.map((professor) => (
                                 <option key={professor} value={professor}>{professor}</option>
                             ))}
@@ -185,7 +185,7 @@ function OverallCourseReviews() {
                 </div>
 
                 {/* course info */}
-                <div className='h-auto md:h-auto mt-6 border-2 border-red-600 w-full md:w-2/3 shadow-lg py-2 mb-6 px-4 md:px-6'>
+                <div className='h-auto md:h-auto mt-6 border-2 border-tertiary w-full md:w-2/3 shadow-lg py-2 mb-6 px-4 md:px-6'>
                     <div className='flex items-center'>
                         {/* wait until uniLogo is loaded */}
                         <div className="w-12 md:w-12 relative m-6">
@@ -208,7 +208,7 @@ function OverallCourseReviews() {
                 </div>
 
                 <Link to={`/Review?courseName=${course.name}&uni=${course.university}&uniLogo=${uniLogo}`}>
-                    <button className='h-16 w-1/2 md:w-1/6 bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-900'>Leave a New Review</button>
+                    <button className='h-16 w-1/2 md:w-1/6 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary'>Leave a New Review</button>
                 </Link>
 
                 <span className="text-md mt-6 text-black">Showing {reviewResponseCount} Reviews: </span>
