@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Input } from "../components/ui/input"
 
 const SearchComponent = ({ data, onSearchResults, placeholder }) => {
     const [searchInput, setSearchInput] = useState('');
@@ -14,9 +15,9 @@ const SearchComponent = ({ data, onSearchResults, placeholder }) => {
 
 
     return (
-        <div className="flex items-center border-2 border-tertiary shadow-lg h-14">
-            <input
-                className="flex-1 px-6 h-full rounded-full text-gray-700 leading-tight focus:outline-none"
+        <div className="flex flex-row items-center justify-center my-4 
+                        w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%]">
+            <Input
                 id="search"
                 type="text"
                 value={searchInput}
@@ -24,6 +25,8 @@ const SearchComponent = ({ data, onSearchResults, placeholder }) => {
                 placeholder={placeholder}
             />
         </div>
+
+        
     );
 };
 

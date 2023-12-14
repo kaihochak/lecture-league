@@ -10,19 +10,20 @@ export default function Course_div({ data }) {
         return (
             <Link 
                 to={`/overallCourseReview/${encodeURIComponent(data.name)}`} 
-                className="w-3/4 md:w-4/12 h-24 mt-6"
+                className="w-[60%] md-[50%] lg:w-[45%] xl:w-[40%] m-2"
             >
-                <div className='search-results'>
-                    <div key={data.id} className='result-box border-2 border-tertiary container shadow-lg w-full md:w-3/4 lg:w-1/2'>
-                        <div className='results-left'>
-                            <h2 className="text-2xl lg:text-3xl">{data.name}</h2>
-                            <h2 className="text-1xl lg:text-xl"> Computer Science class </h2>
-                        </div>
-                        <div className='results-left'>
-                            <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Difficulty: </strong>{data.average_difficulty}</div>
-                            <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Workload: </strong>{data.average_workload}</div>
-                            <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Usefulness: </strong>{data.average_usefulness}</div>
-                        </div>
+                <div key={data.id} className='font-Montserrat border-1 shadow-lg border-tertiary rounded-sm bg-primary
+                                                p-2 md:p-4 flex items-center justify-around
+                                                hover:scale-105 transition duration-300 ease-in-out'>
+                    <div className='w-[60%] relative'>
+                        <h2 className="text-2xl lg:text-3xl">{data.name}</h2>
+                        <h2 className="text-1xl lg:text-xl">{data.title}</h2>
+                    </div>
+                    {/* ratings */}
+                    <div className='w-[40%] md:w-1/4 px-2 '>
+                        <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Difficulty: </strong>{data.average_difficulty}</div>
+                        <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Workload: </strong>{data.average_workload}</div>
+                        <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Usefulness: </strong>{data.average_usefulness}</div>
                     </div>
                 </div>
             </Link>

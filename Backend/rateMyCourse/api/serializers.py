@@ -21,7 +21,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ['name', 'university', 'description', 'average_workload', 'average_difficulty', 'average_usefulness']
+        fields = ['name', 'title', 'university', 'description', 'average_workload', 'average_difficulty', 'average_usefulness']
 
     def get_average_workload(self, obj):
         return obj.average_workload()

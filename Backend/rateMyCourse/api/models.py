@@ -14,6 +14,7 @@ class University(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=50, primary_key=True)
+    title = models.CharField(max_length=50, default="No title available")
     university = models.ForeignKey(University, on_delete=models.CASCADE)
     description = models.CharField(max_length=500, default="No description available")
 

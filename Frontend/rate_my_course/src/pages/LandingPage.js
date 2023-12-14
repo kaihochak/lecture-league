@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react'
 import UniDiv from '../components/UniDiv';
 import Header from '../components/Header';
 import '../styles/LandingPage.css';
+import { Input } from "../components/ui/input";
 
 function LandingPage() {
   const [searchInput, setSearchInput] = useState('');
@@ -49,8 +50,7 @@ useEffect(() => {
 
       {/* Banner */}
       <div className='bg-banner bg-cover flex flex-col items-center justify-center 
-                      h-60 w-full p-4 md:p-10 gap-y-4 md:gap-y-10'>
-
+                      h-60 sm:h-80 md:h-96 lg:h-[1/2] w-full p-4 md:p-10 gap-y-4 md:gap-y-10'>
       
         {/* Title */}
         <div className='flex flex-col items-center justify-center'>
@@ -58,17 +58,17 @@ useEffect(() => {
         </div>
 
         {/* Search */}
-            <input
-                className="text-secondary focus:outline-none focus:shadow-outline rounded-lg py-1 px-4
-                          w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-10 " 
-                id="search"
-                type="text"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                placeholder={"Search University"}
-            />
+        <Input
+            className="w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-10" 
+            id="search"
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            placeholder={"Search University"}
+        />
       </div>
 
+      {/* Filters */}
       <div className='flex justify-between text-sm 
                       w-[70%] md-[60%] lg:w-[50%] xl:w-[40%] m-2 pt-4'>
         {/* number of results */}
