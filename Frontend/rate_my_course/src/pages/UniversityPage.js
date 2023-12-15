@@ -139,80 +139,83 @@ function UniversityPage() {
 
   return (
     <div className='flex flex-col font-Montserrat items-center justify-center mb-5'>
-        <Header />
+      <Header />
 
+      {/* Banner */}
+      <div className='bg-banner-uni bg-cover flex flex-col items-center justify-center 
+                      h-60 sm:h-80 md:h-96 lg:h-[1/2] w-full p-4 md:p-72 gap-y-2 md:gap-y-6'>
         {/* Uni Info*/}
-        <div className="flex flex-col items-center mt-2">
-            <div className="w-1/2 md:w-1/3 max-w-xs relative m-6">
+        <div className="flex flex-col items-center my-2">
+          <div className="w-1/2 md:w-1/3 max-w-xs relative m-6">
             <img src={universityData.image} alt="University-Search-Logo" />
-            </div>
-            <h1 className="text-4xl mb-5">{universityName}</h1>
+          </div>
+          <h1 className="text-4xl text-primary">{universityName}</h1>
         </div>
-
         {/* Search Component */}
         <SearchComponent
-            data={searchResults}
-            onSearchResults={handleSearchResults}
-            placeholder={"Search Course"}
+          data={searchResults}
+          onSearchResults={handleSearchResults}
+          placeholder={"Search Course"}
         />
-            
-        {/* Search Filter */}
-        <div className="flex w-[60%] gap-x-4 mx-auto my-4">
-            {/* Course Code */}
-            <Select onValueChange={(value) => setCourseCode(value)} >
-                <SelectTrigger className="w-[280px]">
-                    <SelectValue placeholder="Course Code" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup >
-                        <SelectLabel>Course Code</SelectLabel>  
-                        <SelectItem value="----">All</SelectItem>
-                        {courseNames.map((name, index) => (
-                            <SelectItem key={index} value={name} >
-                            {name}
-                            </SelectItem>
-                        ))}
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
-            {/* Course Number */}
-            <Select onValueChange={(value) => setCourseNumber(value)} >
-                <SelectTrigger className="w-[280px]">
-                    <SelectValue placeholder="Course Number" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup >
-                        <SelectLabel>Course Number</SelectLabel>  
-                        <SelectItem value="All">All</SelectItem>
-                        <SelectItem value="5">500 Levels</SelectItem>
-                        <SelectItem value="4">400 Levels</SelectItem>
-                        <SelectItem value="3">300 Levels</SelectItem>
-                        <SelectItem value="2">200 Levels</SelectItem>
-                        <SelectItem value="1">100 Levels</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
-            {/* Ratings */}
-            <Select onValueChange={(value) => setFilter(value)} >
-                <SelectTrigger className="w-[280px]">
-                    <SelectValue placeholder="Ratings" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>Ratings</SelectLabel>  
-                        <SelectItem value="-----">Reset</SelectItem>
-                        <SelectItem value="Workload">Workload - Low to High</SelectItem>
-                        <SelectItem value="Difficulty">Difficulty - Low to High</SelectItem>
-                        <SelectItem value="Usefulness">Usefulness - High to Low</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
-        </div>
+      </div>
 
-        {/* Display search results */}
-        {filteredResults.map((result) => (
+      {/* Search Filter */}
+      <div className="flex w-[60%] gap-x-4 mx-auto my-4">
+        {/* Course Code */}
+        <Select onValueChange={(value) => setCourseCode(value)} >
+          <SelectTrigger className="w-[280px]">
+            <SelectValue placeholder="Course Code" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup >
+              <SelectLabel>Course Code</SelectLabel>
+              <SelectItem value="----">All</SelectItem>
+              {courseNames.map((name, index) => (
+                <SelectItem key={index} value={name} >
+                  {name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        {/* Course Number */}
+        <Select onValueChange={(value) => setCourseNumber(value)} >
+          <SelectTrigger className="w-[280px]">
+            <SelectValue placeholder="Course Number" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup >
+              <SelectLabel>Course Number</SelectLabel>
+              <SelectItem value="All">All</SelectItem>
+              <SelectItem value="5">500 Levels</SelectItem>
+              <SelectItem value="4">400 Levels</SelectItem>
+              <SelectItem value="3">300 Levels</SelectItem>
+              <SelectItem value="2">200 Levels</SelectItem>
+              <SelectItem value="1">100 Levels</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        {/* Ratings */}
+        <Select onValueChange={(value) => setFilter(value)} >
+          <SelectTrigger className="w-[280px]">
+            <SelectValue placeholder="Ratings" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Ratings</SelectLabel>
+              <SelectItem value="-----">Reset</SelectItem>
+              <SelectItem value="Workload">Workload - Low to High</SelectItem>
+              <SelectItem value="Difficulty">Difficulty - Low to High</SelectItem>
+              <SelectItem value="Usefulness">Usefulness - High to Low</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Display search results */}
+      {filteredResults.map((result) => (
         <CourseDiv data={result} key={result.id} />
-        ))}
+      ))}
     </div>
   );
 }

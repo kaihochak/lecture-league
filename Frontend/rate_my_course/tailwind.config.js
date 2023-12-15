@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -16,8 +19,12 @@ module.exports = {
       },
     },
     extend: {    
+      fontFamily: {
+        'Montserrat': ['"Montserrat"', ...defaultTheme.fontFamily.sans],
+      },
       backgroundImage: {
         'banner': "url('./resources/banner.jpg')",
+        'banner-uni': "url('./resources/uni-banner.jpg')",
       },
       screens: {
         "xs": "380px",

@@ -10,20 +10,29 @@ export default function Course_div({ data }) {
         return (
             <Link 
                 to={`/overallCourseReview/${encodeURIComponent(data.name)}`} 
-                className="w-[60%] md-[50%] lg:w-[45%] xl:w-[40%] m-2"
+                className="w-[70%] md-[60%] m-2"
             >
                 <div key={data.id} className='font-Montserrat border-1 shadow-lg border-tertiary rounded-sm bg-primary
                                                 p-2 md:p-4 flex items-center justify-around
                                                 hover:scale-105 transition duration-300 ease-in-out'>
                     <div className='w-[60%] relative'>
-                        <h2 className="text-2xl lg:text-3xl">{data.name}</h2>
-                        <h2 className="text-1xl lg:text-xl">{data.title}</h2>
+                        <h2 className="text-xl lg:text-2xl font-semibold">{data.name}</h2>
+                        <h2 className="text-l lg:text-xl">{data.title}</h2>
                     </div>
                     {/* ratings */}
-                    <div className='w-[40%] md:w-1/4 px-2 '>
-                        <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Difficulty: </strong>{data.average_difficulty}</div>
-                        <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Workload: </strong>{data.average_workload}</div>
-                        <div className="text-1xl lg:text-2xl whitespace-nowrap"><strong>Usefulness: </strong>{data.average_usefulness}</div>
+                    <div className='w-[40%] md:w-1/4 px-2 text-l lg:text-xl whitespace-nowrap'>
+                        <div className="flex justify-between">
+                            <div className='font-semibold'>Difficulty:</div>
+                            <div>{data.average_difficulty}</div> 
+                        </div>
+                        <div className="flex justify-between">
+                            <div className='font-semibold'>Workload:</div>
+                            <div>{data.average_workload}</div> 
+                        </div>
+                        <div className="flex justify-between">
+                            <div className='font-semibold'>Usefulness:</div>
+                            <div>{data.average_usefulness}</div> 
+                        </div>
                     </div>
                 </div>
             </Link>
