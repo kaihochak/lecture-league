@@ -7,26 +7,27 @@ import thumbsDownBlank from '../resources/thumbs-down.svg';
 import thumbsDownRed from '../resources/thumbs-down-red.svg';
 import APIService from '../APIService';
 import { UserContext } from "../UserContext";
+import { Rating } from '@mui/material';
+import { StarIcon } from 'lucide-react';
 
+function RatingSet({ label, rating, setRating }) {
+    const levels = [1, 2, 3, 4, 5];
 
-function RatingSet ({label, rating, setRating}) {
-  const levels = [1,2,3,4,5];
-
-  return (
-    <div className="flex items-center space-x-2">
-      {levels.map((level) => (
-        <button
-          key={level}
-          className={`h-8 w-8 rounded-full cursor-default ${rating >= level ? 'bg-secondary' : 'bg-secondary'}`}
-          aria-label={`Set ${label} to ${level}`}
-        />
-      ))}
-      <span>{label}</span>
-    </div>
-  );
+    return (
+        <div className="flex items-center space-x-2">
+            {levels.map((level) => (
+                <button
+                    key={level}
+                    className={`h-8 w-8 rounded-full cursor-default ${rating >= level ? 'bg-secondary' : 'bg-secondary'}`}
+                    aria-label={`Set ${label} to ${level}`}
+                />
+            ))}
+            <span>{label}</span>
+        </div>
+    );
 }
 
-function OverarallReviews({data, index}) {
+function OverarallReviews({ data, index }) {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
     const [professor, setProfessor] = useState("");
@@ -41,9 +42,8 @@ function OverarallReviews({data, index}) {
     const [submissionDate, setSubmissionDate] = useState("");
     const { username } = useContext(UserContext);
 
-
     useEffect(() => {
-        if(data) {
+        if (data) {
             setUniversity(data.university);
             setCourse(data.course);
             setReview(data.review);
@@ -59,7 +59,7 @@ function OverarallReviews({data, index}) {
 
     const handleThumbsUpClick = () => {
         setThumbsUpClicked(!thumbsUpClicked);
-    
+
         if (!thumbsUpClicked) {
             setLikedCount(likedCount + 1);
             if (thumbsDownClicked) {
@@ -68,16 +68,16 @@ function OverarallReviews({data, index}) {
         } else {
             setLikedCount(likedCount - 1);
         }
-    
+
         setThumbsDownClicked(false);
 
-        const postData ={
+        const postData = {
             course,
             university,
             professor,
-            workload, 
-            difficulty, 
-            usefulness, 
+            workload,
+            difficulty,
+            usefulness,
             review,
             user: username,
             likes: likedCount,
@@ -85,10 +85,10 @@ function OverarallReviews({data, index}) {
         }
         APIService.UpdateReview(postData, data.id);
     };
-    
+
     const handleThumbsDownClick = () => {
         setThumbsDownClicked(!thumbsDownClicked);
-    
+
         if (!thumbsDownClicked) {
             setDislikedCount(dislikedCount + 1);
             if (thumbsUpClicked) {
@@ -97,16 +97,16 @@ function OverarallReviews({data, index}) {
         } else {
             setDislikedCount(dislikedCount - 1);
         }
-    
+
         setThumbsUpClicked(false);
 
-        const postData ={
+        const postData = {
             course,
             university,
             professor,
-            workload, 
-            difficulty, 
-            usefulness, 
+            workload,
+            difficulty,
+            usefulness,
             review,
             user: username,
             likes: likedCount,
@@ -116,80 +116,81 @@ function OverarallReviews({data, index}) {
     };
 
     return (
-        <div>
-            <div className='mt-6 bg-secondary border-2 border-tertiary font-bold shadow-lg py-2 px-2 w-1/2 md:w-1/6'>
-                <span className="text-md text-white text-center">Review #{index + 1}</span>
-            </div>
+        <div className='font-Montserrat shadow-lg rounded-sm bg-primary
+                        my-6 p-2 md:p-4 items-center justify-between'>
+            {/* Info */}
+            <div className='flex flex-col'>
+                {/* prof & date */}
+                <div className='flex justify-between mx-6 my-2'>
+                    <div><span className='font-semibold'>Professor: </span>{professor}</div>
+                    <div>{submissionDate}</div>
+                </div>
 
-            <div className='md:flex-row w-full'>
-                <div className='form-container-3'>
-
-                    <div className='flex justify-between'>
-                        <div className='ml-4 mr-4'>
-                            <input
-                                readOnly={true}
-                                type="text"
-                                value={university}
-                                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min focus:outline-none cursor-default" 
-                                placeholder="University"
-                            />
-                            <input
-                                readOnly={true}
-                                type="text"
-                                value={course}
-                                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min focus:outline-none cursor-default"
-                                placeholder="Course Number"
-                            />
-                            <input
-                                readOnly={true}
-                                type="text"
-                                value={professor}
-                                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min focus:outline-none cursor-default"
-                                placeholder="Professor's Name"
-                            />
-                        </div>
-                        <div className=' mr-2 mt-4 md:mr-7'>
-                            <span className=' text-sm md:text-black md:font-bold md:text-2xl'>{data.person}</span>
-                        </div>
-                    </div>
-
-                    <div className='my-4 pl-4'>
-                        <RatingSet label='Difficulty' rating={difficulty} />
-                    </div>
-                    <div className='my-4 pl-4'>
-                        <RatingSet label='Workload' rating={workload} />
-                    </div>
-                    <div className='my-4 pl-4'>
-                        <RatingSet label='Usefulness' rating={usefulness} />
-                    </div>
-
-                    <div className='form-input flex-grow py-2 px-4 border-2 border-tertiary my-4 mx-5 sm:min-h-[200px]'>
+                {/* main content */}
+                <div className='flex md:flex-row mx-6 my-2 gap-x-10'>
+                    {/* Review */}
+                    <div className='md:w-[70%] py-2 px-4 border-2 border-tertiary sm:min-h-[150px]'>
                         {review}
                     </div>
-
-                    <div className = 'w-full md:flex md:flex-row flex flex-col mb-2'>
-                        <div className='ml-8 mt-2 mb-2 font-bold flex'>
-                            <div onClick={handleThumbsUpClick}>
-                                <img src={thumbsUpClicked ? thumbsUpGreen : thumbsUpBlank} className="h-6 w-6 cursor-pointer" alt="thumbs-up"/>
+                    {/* Ratings & Likes */}
+                    <div className='flex flex-col justify-around'>
+                        {/* Ratings */}
+                        <div className='flex flex-col gap-x-6'>
+                            {/* Difficult */}
+                            <div className='flex justify-between gap-x-6'>
+                                <div className='font-semibold w-26'>Difficulty: </div>
+                                <Rating
+                                    name="text-feedback"
+                                    value={difficulty}
+                                    readOnly
+                                    precision={0.01}
+                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                />
                             </div>
-                            <span className="text-md text-black ml-1">{likedCount}</span>
-                            <div onClick={handleThumbsDownClick} className='ml-4 mt-1'>
-                                <img src={thumbsDownClicked ? thumbsDownRed : thumbsDownBlank} className="h-6 w-6 cursor-pointer" alt="thumbs-down"/>
+                            {/* Workload */}
+                            <div className='flex justify-between gap-x-6'>
+                                <div className='font-semibold w-26'>Workload: </div>
+                                <Rating
+                                    name="text-feedback"
+                                    value={workload}
+                                    readOnly
+                                    precision={0.01}
+                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                />
                             </div>
-                            <span className="text-md text-black ml-1">{dislikedCount}</span>
+                            {/* Usefulness */}
+                            <div className='flex justify-between'>
+                                <div className='font-semibold w-26'>Usefulness: </div>
+                                <Rating
+                                    name="text-feedback"
+                                    value={usefulness}
+                                    readOnly
+                                    precision={0.01}
+                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                />
+                            </div>
                         </div>
-                        {/* <div className='ml-8 mt-2 mb-2 font-bold'>
-                            <span className="text-md text-gray-400">{likedCount} people upvoted this post</span>
-                        </div> */}
+                        {/* Like Dislike */}
+                        <div className='flex flex-row md:flex-col items-center'>
+                            <div className='font-semibold flex'>
+                                <div onClick={handleThumbsUpClick}>
+                                    <img src={thumbsUpClicked ? thumbsUpGreen : thumbsUpBlank} className="h-6 w-6 cursor-pointer" alt="thumbs-up" />
+                                </div>
+                                <span className="text-md text-black ml-1">{likedCount}</span>
+                                <div onClick={handleThumbsDownClick} className='ml-4 mt-1'>
+                                    <img src={thumbsDownClicked ? thumbsDownRed : thumbsDownBlank} className="h-6 w-6 cursor-pointer" alt="thumbs-down" />
+                                </div>
+                                <span className="text-md text-black ml-1">{dislikedCount}</span>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <Date date={submissionDate}/>
             </div>
-            
         </div>
     );
-  }
-  
-  export default OverarallReviews;
+}
+
+export default OverarallReviews;
 
 

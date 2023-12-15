@@ -14,7 +14,6 @@ import {
     SelectTrigger,
     SelectValue,
   } from "../components/ui/select"
-
 import {
     Accordion,
     AccordionContent,
@@ -23,6 +22,7 @@ import {
 } from "../components/ui/accordion"
 import { Box, Rating, Typography } from '@mui/material';
 import { StarIcon } from 'lucide-react';
+import { Button } from "../components/ui/button"
 
 function OverallCourseReviews() {
     const [isChecked, setIsChecked] = useState(false);
@@ -154,7 +154,7 @@ function OverallCourseReviews() {
     return (
         <div>
             <Header />
-            <div className='flex flex-col justify-center mt-5 mx-10 md:mx-10'>
+            <div className='flex flex-col font-Montserrat justify-center mt-5 mx-10 md:mx-10'>
 
                 {/* course info */}
                 <Accordion type="single" collapsible>
@@ -180,7 +180,7 @@ function OverallCourseReviews() {
                                 <div className='md:auto md:ml-8 md:mt-0 mt-6 text-md mr-10'>
                                     {/* Difficult */}
                                     <div className='flex justify-between gap-x-6'>
-                                        <div className='font-semibold w-26'>Difficulty: </div>
+                                        <div className='font-semibold w-26'>Difficulty </div>
                                         <div className='flex justify-between'>
                                             <Rating
                                                 name="text-feedback"
@@ -194,7 +194,7 @@ function OverallCourseReviews() {
                                     </div>
                                     {/* Workload */}
                                     <div className='flex justify-between gap-x-6'>
-                                        <div className='font-semibold w-26'>Workload: </div>
+                                        <div className='font-semibold w-26'>Workload </div>
                                         <div className='flex justify-between'>
                                             <Rating
                                                 name="text-feedback"
@@ -208,7 +208,7 @@ function OverallCourseReviews() {
                                     </div>
                                     {/* Usefulness */}
                                     <div className='flex justify-between gap-x-6'>
-                                        <div className='font-semibold w-26'>Usefulness: </div>
+                                        <div className='font-semibold w-26'>Usefulness </div>
                                         <div className='flex '>
                                             <Rating
                                                 name="text-feedback"
@@ -226,63 +226,64 @@ function OverallCourseReviews() {
                     </AccordionItem>
                 </Accordion>
 
-                <div className='flex justify-end gap-x-4 text-sm mt-5 w-full'>
+                <div className='flex mb-4 justify-between'>
+                    <div className="text-md mt-6 text-black">Showing {reviewResponseCount} Reviews: </div>
 
-                    {/* Newest Posts */}
-                    <div className='flex gap-x-2 items-center'>
-                        <label className="switch">
-                            <input type="checkbox" checked={sortedByDate} onChange={handleDateSortingToggle} />
-                            <span className="slider round"></span>
-                        </label>
-                        <div className='ml-1 mt-1'>Latest</div>
-                    </div>
+                    <div className='flex justify-end gap-x-4 text-sm mt-5'>
 
-                    {/* Top Rated */}
-                    <div className='flex gap-x-2 items-center'>
-                        <label className="switch">
-                            <input type="checkbox" checked={sortedByLikes} onChange={handleLikesSortingToggle} />
-                            <span className="slider round"></span>
-                        </label>
-                        <div className='ml-1 mt-1'>Top Rated</div>
-                    </div>
-
-                    {/* by Professors */}
-                    <Select onValueChange={(value) => setSelectedProfessor(value)}>
-                        <SelectTrigger className="w-[180px] ">
-                            <SelectValue placeholder="Professor" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectGroup >
-                                <SelectLabel>Professor</SelectLabel>
-                                {professorsList.map((professor) => (
-                                    <SelectItem key={professor} value={professor}>
-                                        {professor}
-                                    </SelectItem>
-                                ))}
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
-
-                    {/* bookmark */}
-                    <div className='flex flex-row items-center'>
-                        <div onClick={handleBookmarkClick} className=''>
-                            <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="md:h-8 md:w-8 h-4 w-4 cursor-pointer" alt="book-mark" />
+                        {/* Newest Posts */}
+                        <div className='flex gap-x-2 items-center'>
+                            <label className="switch">
+                                <input type="checkbox" checked={sortedByDate} onChange={handleDateSortingToggle} />
+                                <span className="slider round"></span>
+                            </label>
+                            <div className='ml-1'>Latest</div>
                         </div>
-                        <div className='ml-2 align-middle'>
+
+                        {/* Top Rated */}
+                        <div className='flex gap-x-2 items-center'>
+                            <label className="switch">
+                                <input type="checkbox" checked={sortedByLikes} onChange={handleLikesSortingToggle} />
+                                <span className="slider round"></span>
+                            </label>
+                            <div className='m-1 '>Top Rated</div>
+                        </div>
+
+                        {/* by Professors */}
+                        <Select onValueChange={(value) => setSelectedProfessor(value)}>
+                            <SelectTrigger className="w-[180px] ">
+                                <SelectValue placeholder="Professor" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup >
+                                    <SelectLabel>Professor</SelectLabel>
+                                    {professorsList.map((professor) => (
+                                        <SelectItem key={professor} value={professor}>
+                                            {professor}
+                                        </SelectItem>
+                                    ))}
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+
+                        {/* bookmark */}
+                        <div className='flex flex-row items-center'>
+                            <div onClick={handleBookmarkClick} className=''>
+                                <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="md:h-8 md:w-8 h-4 w-4 cursor-pointer" alt="book-mark" />
+                            </div>
+                            <div className='ml-2 align-middle'>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-
-                <Link to={`/Review?courseName=${course.name}&uni=${course.university}&uniLogo=${uniLogo}`}>
-                    <button className='h-16 w-1/2 md:w-1/6 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary'>Leave a New Review</button>
-                </Link>
-
-                <span className="text-md mt-6 text-black">Showing {reviewResponseCount} Reviews: </span>
-
                 {filteredReviews.map((review, index) => (
                     <OverarallReviews data={review} index={index} key={review.id} />
                 ))}
+
+                <Link className="mx-auto" to={`/Review?courseName=${course.name}&uni=${course.university}&uniLogo=${uniLogo}`}>
+                    <Button className="h-20 w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
+                </Link>
 
             </div>
         </div>
