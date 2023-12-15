@@ -15,6 +15,8 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "../components/ui/accordion"
+import { Box, Rating, Typography } from '@mui/material';
+import { StarIcon } from 'lucide-react';
 
 
 
@@ -174,26 +176,53 @@ function OverallCourseReviews() {
                                 </div>
                                 {/* ratings */}
                                 <div className='w-[30%] md:ml-8 md:w-auto md:mt-0 mt-6 text-md mr-10'>
+                                    {/* Difficult */}
                                     <div className='flex justify-between gap-x-6'>
                                         <p className='font-semibold'>Difficulty: </p>
-                                        <p>{course.average_difficulty}</p>
+                                        <div className='flex'>
+                                            <Rating
+                                                name="text-feedback"
+                                                value={course.average_difficulty}
+                                                readOnly
+                                                precision={0.01}
+                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                            />
+                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
+                                        </div>
                                     </div>
+                                    {/* Workload */}
                                     <div className='flex justify-between gap-x-6'>
                                         <p className='font-semibold'>Workload: </p>
-                                        <p>{course.average_workload}</p>
+                                        <div className='flex'>
+                                            <Rating
+                                                name="text-feedback"
+                                                value={course.average_workload}
+                                                readOnly
+                                                precision={0.01}
+                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                            />
+                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
+                                        </div>
                                     </div>
+                                    {/* Usefulness */}
                                     <div className='flex justify-between gap-x-6'>
                                         <p className='font-semibold'>Usefulness: </p>
-                                        <p>{course.average_usefulness}</p>
+                                        <div className='flex'>
+                                            <Rating
+                                                name="text-feedback"
+                                                value={course.average_usefulness}
+                                                readOnly
+                                                precision={0.01}
+                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                            />
+                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
-
-
-
 
                 <div className='flex justify-between text-sm mt-5 w-full md:w-1/2'>
 
