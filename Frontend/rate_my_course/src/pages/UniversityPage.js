@@ -5,7 +5,6 @@ import "../styles/SearchResults.css";
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import APIService from "../APIService";
-
 import {
   Select,
   SelectContent,

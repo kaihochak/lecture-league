@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import uni_logo from '../resources/logo-ucalgary.jpg';
-import Stars from '../resources/stars.jpg';
 import { Link, useParams } from "react-router-dom";
-import ReportedReview from '../components/ReportedReview';
 import OverarallReviews from '../components/OverallReviews';
 import Header from '../components/Header';
 import bookMark from '../resources/bookmark.svg';
 import bookMarkBlank from '../resources/bookmark-blank.svg';
 import APIService from '../APIService';
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+  } from "../components/ui/select"
 
 import {
     Accordion,
@@ -18,14 +24,10 @@ import {
 import { Box, Rating, Typography } from '@mui/material';
 import { StarIcon } from 'lucide-react';
 
-
-
 function OverallCourseReviews() {
     const [isChecked, setIsChecked] = useState(false);
     const [isChecked2, setIsChecked2] = useState(false);
-    const [professor, setProfessor] = useState('Professor');
     const [course, setCourse] = useState('');
-    const [reviews, setReviews] = useState([]);
     const [bookMarkClicked, setBookMarkClicked] = useState(false);
     const [reviewResponseCount, setReviewResponseCount] = useState(0);
     const [uniLogo, setUniLogo] = useState('');
@@ -171,15 +173,15 @@ function OverallCourseReviews() {
                         <AccordionContent>
                             <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
                                 {/* Course Description */}
-                                <div className='w-[70%]'>
-                                    <p className="text-md ftext-left">{course.description}</p>
+                                <div className='md:w-[70%]'>
+                                    <div className="text-md ftext-left">{course.description}</div>
                                 </div>
                                 {/* ratings */}
-                                <div className='w-[30%] md:ml-8 md:w-auto md:mt-0 mt-6 text-md mr-10'>
+                                <div className='md:auto md:ml-8 md:mt-0 mt-6 text-md mr-10'>
                                     {/* Difficult */}
                                     <div className='flex justify-between gap-x-6'>
-                                        <p className='font-semibold'>Difficulty: </p>
-                                        <div className='flex'>
+                                        <div className='font-semibold w-26'>Difficulty: </div>
+                                        <div className='flex justify-between'>
                                             <Rating
                                                 name="text-feedback"
                                                 value={course.average_difficulty}
@@ -192,8 +194,8 @@ function OverallCourseReviews() {
                                     </div>
                                     {/* Workload */}
                                     <div className='flex justify-between gap-x-6'>
-                                        <p className='font-semibold'>Workload: </p>
-                                        <div className='flex'>
+                                        <div className='font-semibold w-26'>Workload: </div>
+                                        <div className='flex justify-between'>
                                             <Rating
                                                 name="text-feedback"
                                                 value={course.average_workload}
@@ -206,8 +208,8 @@ function OverallCourseReviews() {
                                     </div>
                                     {/* Usefulness */}
                                     <div className='flex justify-between gap-x-6'>
-                                        <p className='font-semibold'>Usefulness: </p>
-                                        <div className='flex'>
+                                        <div className='font-semibold w-26'>Usefulness: </div>
+                                        <div className='flex '>
                                             <Rating
                                                 name="text-feedback"
                                                 value={course.average_usefulness}
@@ -224,48 +226,54 @@ function OverallCourseReviews() {
                     </AccordionItem>
                 </Accordion>
 
-                <div className='flex justify-between text-sm mt-5 w-full md:w-1/2'>
+                <div className='flex justify-end gap-x-4 text-sm mt-5 w-full'>
 
                     {/* Newest Posts */}
-                    <div className='w-1/3 ml-2'>
+                    <div className='flex gap-x-2 items-center'>
                         <label className="switch">
                             <input type="checkbox" checked={sortedByDate} onChange={handleDateSortingToggle} />
                             <span className="slider round"></span>
                         </label>
-                        <p className='ml-1 mt-1'>Newest Posts</p>
+                        <div className='ml-1 mt-1'>Latest</div>
                     </div>
 
                     {/* Top Rated */}
-                    <div className='w-1/3 ml-2'>
+                    <div className='flex gap-x-2 items-center'>
                         <label className="switch">
                             <input type="checkbox" checked={sortedByLikes} onChange={handleLikesSortingToggle} />
                             <span className="slider round"></span>
                         </label>
-                        <p className='ml-1 mt-1'>Top Rated</p>
+                        <div className='ml-1 mt-1'>Top Rated</div>
                     </div>
 
                     {/* by Professors */}
-                    <div className='w-1/3 ml-2'>
-                        <select value={selectedProfessor}
-                            onChange={(e) => setSelectedProfessor(e.target.value)}
-                            className='border-2 border-tertiary rounded-full p-1'>
-                            {professorsList.map((professor) => (
-                                <option key={professor} value={professor}>{professor}</option>
-                            ))}
-                        </select>
-                        <p className='ml-1 mt-1'>Professors</p>
+                    <Select onValueChange={(value) => setSelectedProfessor(value)}>
+                        <SelectTrigger className="w-[180px] ">
+                            <SelectValue placeholder="Professor" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup >
+                                <SelectLabel>Professor</SelectLabel>
+                                {professorsList.map((professor) => (
+                                    <SelectItem key={professor} value={professor}>
+                                        {professor}
+                                    </SelectItem>
+                                ))}
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>
+
+                    {/* bookmark */}
+                    <div className='flex flex-row items-center'>
+                        <div onClick={handleBookmarkClick} className=''>
+                            <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="md:h-8 md:w-8 h-4 w-4 cursor-pointer" alt="book-mark" />
+                        </div>
+                        <div className='ml-2 align-middle'>
+                        </div>
                     </div>
                 </div>
 
-                {/* bookmark */}
-                <div className='flex flex-row mt-6'>
-                    <div onClick={handleBookmarkClick} className='mt-1'>
-                        <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="md:h-12 md:w-12 h-8 w-8 cursor-pointer" alt="book-mark" />
-                    </div>
-                    <div className='ml-4 mt-3 mb-2 align-middle'>
-                        <span className="md:text-lg text-md text-center">Add to Watched Courses?</span>
-                    </div>
-                </div>
+
                 <Link to={`/Review?courseName=${course.name}&uni=${course.university}&uniLogo=${uniLogo}`}>
                     <button className='h-16 w-1/2 md:w-1/6 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary'>Leave a New Review</button>
                 </Link>
