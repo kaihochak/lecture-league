@@ -36,6 +36,7 @@ function Reviews() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const courseName = queryParams.get('courseName');
+    // const course = queryParams.get('course');
     const university_name = queryParams.get('uni');
     const uniLogo = queryParams.get('uniLogo');
     const { username } = useContext(UserContext);
@@ -47,6 +48,8 @@ function Reviews() {
       professor: '',
       comments: ''
     });
+
+    console.log(courseName);
 
     const validateInputs = () => {
         const errors = {};
@@ -65,18 +68,11 @@ function Reviews() {
         {
             errors.usefulness = 'Usefulness Rating is required';
         }
-
-        // if (university.trim() === '') {
-        //   errors.university = 'University is required';
-        // }
     
         if (professor.trim() === '') {
           errors.professor = 'Professor\'s Name is required';
         }
 
-        // if (courseCode.trim() === '') {
-        //     errors.professor = 'Course Code is required';
-        //   }
         if (comments.trim() === "") {
             errors.comments = 'Comments are required';
             console.log("Comments are required");
@@ -95,6 +91,7 @@ function Reviews() {
           navigate(-1);
           const postData ={
             course: courseName,
+            // course: course.name,
             university: university_name,
             professor,
             workload, 
@@ -112,6 +109,7 @@ function Reviews() {
             <Header />
             <div className='class-header flex items-center mt-2 mb-2'>
               <img src={uniLogo} alt="University-Logo" className="w-12 mr-4 md:w-20"/>
+              {/* <h1 className="text-3xl">{course.name}</h1> */}
               <h1 className="text-3xl">{courseName}</h1>
             </div>
             <div className="review-container">    
@@ -134,6 +132,7 @@ function Reviews() {
                     />
                     <input
                         type="text"
+                        // value={course.name}
                         value={courseName}
                         className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
                         placeholder="Course Code"
@@ -165,11 +164,11 @@ function Reviews() {
             </div>
             <div className='buttons-container'>
                 <button 
-                className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
+                className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
                 onClick={() => navigate(-1)}>
                     Cancel</button>
                 <button 
-                className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
+                className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
                 onClick={handleSaveChanges}>
                     Submit</button>
             </div>

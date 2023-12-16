@@ -186,7 +186,7 @@ function OverallCourseReviews() {
                                                 name="text-feedback"
                                                 value={course.average_difficulty}
                                                 readOnly
-                                                precision={0.01}
+                                                precision={0.05}
                                                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                             />
                                             <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
@@ -200,7 +200,7 @@ function OverallCourseReviews() {
                                                 name="text-feedback"
                                                 value={course.average_workload}
                                                 readOnly
-                                                precision={0.01}
+                                                precision={0.05}
                                                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                             />
                                             <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
@@ -214,7 +214,7 @@ function OverallCourseReviews() {
                                                 name="text-feedback"
                                                 value={course.average_usefulness}
                                                 readOnly
-                                                precision={0.01}
+                                                precision={0.05}
                                                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                             />
                                             <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
@@ -282,6 +282,7 @@ function OverallCourseReviews() {
                 ))}
 
                 <Link className="mx-auto" to={`/Review?courseName=${course.name}&uni=${course.university}&uniLogo=${uniLogo}`}>
+                {/* <Link className="mx-auto" to={`/Review?course=${course}`}> */}
                     <Button className="h-20 w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
                 </Link>
 

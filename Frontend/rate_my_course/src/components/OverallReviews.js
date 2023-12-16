@@ -10,22 +10,6 @@ import { UserContext } from "../UserContext";
 import { Rating } from '@mui/material';
 import { StarIcon } from 'lucide-react';
 
-function RatingSet({ label, rating, setRating }) {
-    const levels = [1, 2, 3, 4, 5];
-
-    return (
-        <div className="flex items-center space-x-2">
-            {levels.map((level) => (
-                <button
-                    key={level}
-                    className={`h-8 w-8 rounded-full cursor-default ${rating >= level ? 'bg-secondary' : 'bg-secondary'}`}
-                    aria-label={`Set ${label} to ${level}`}
-                />
-            ))}
-            <span>{label}</span>
-        </div>
-    );
-}
 
 function OverarallReviews({ data, index }) {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
@@ -127,9 +111,9 @@ function OverarallReviews({ data, index }) {
                 </div>
 
                 {/* main content */}
-                <div className='flex md:flex-row mx-6 my-2 gap-x-10'>
+                <div className='flex md:flex-row mx-6 my-2 gap-x-10 justify-between'>
                     {/* Review */}
-                    <div className='md:w-[70%] py-2 px-4 border-2 border-tertiary sm:min-h-[150px]'>
+                    <div className='md:w-[80%] py-2 px-4 border-2 border-tertiary sm:min-h-[150px]'>
                         {review}
                     </div>
                     {/* Ratings & Likes */}
@@ -138,34 +122,34 @@ function OverarallReviews({ data, index }) {
                         <div className='flex flex-col gap-x-6'>
                             {/* Difficult */}
                             <div className='flex justify-between gap-x-6'>
-                                <div className='font-semibold w-26'>Difficulty: </div>
+                                <div className='font-semibold w-26'>Difficulty </div>
                                 <Rating
                                     name="text-feedback"
                                     value={difficulty}
                                     readOnly
-                                    precision={0.01}
+                                    precision={1}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                 />
                             </div>
                             {/* Workload */}
                             <div className='flex justify-between gap-x-6'>
-                                <div className='font-semibold w-26'>Workload: </div>
+                                <div className='font-semibold w-26'>Workload </div>
                                 <Rating
                                     name="text-feedback"
                                     value={workload}
                                     readOnly
-                                    precision={0.01}
+                                    precision={1}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                 />
                             </div>
                             {/* Usefulness */}
                             <div className='flex justify-between'>
-                                <div className='font-semibold w-26'>Usefulness: </div>
+                                <div className='font-semibold w-26'>Usefulness </div>
                                 <Rating
                                     name="text-feedback"
                                     value={usefulness}
                                     readOnly
-                                    precision={0.01}
+                                    precision={1}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                 />
                             </div>
