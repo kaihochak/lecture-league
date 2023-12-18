@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/home" element={<LandingPage />} />
             <Route exact path="/UniversityPage/:universityName/" element={<UniversityPage />} />
             <Route exact path="/overallCourseReview/:courseName/" element={<OverallCourseReviews />} />
-            <Route exact path="/review" element={<ReviewPage />} />
+            <Route exact path="/review/:courseName/" element={<ReviewPage />} />
             
             <Route exact path="/AdminPage" element={<AdminPage />} />
           </Routes>

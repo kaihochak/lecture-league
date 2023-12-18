@@ -20,7 +20,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "../components/ui/accordion"
-import { Box, Rating, Typography } from '@mui/material';
+import { Box, Rating } from '@mui/material';
 import { StarIcon } from 'lucide-react';
 import { Button } from "../components/ui/button"
 
@@ -278,14 +278,12 @@ function OverallCourseReviews() {
                 </div>
 
                 {filteredReviews.map((review, index) => (
-                    <OverarallReviews data={review} index={index} key={review.id} />
+                    <OverarallReviews isEditable={false} data={review} index={index} key={review.id} />
                 ))}
 
-                <Link className="mx-auto" to={`/Review?courseName=${course.name}&uni=${course.university}&uniLogo=${uniLogo}`}>
-                {/* <Link className="mx-auto" to={`/Review?course=${course}`}> */}
+                <Link className="mx-auto" to={`/review/${encodeURIComponent(courseName)}`}>
                     <Button className="h-20 w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
                 </Link>
-
             </div>
         </div>
     );

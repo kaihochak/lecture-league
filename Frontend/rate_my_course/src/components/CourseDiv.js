@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import uni_logo from '../resources/logo-ucalgary.jpg'; // Assuming you use this somewhere
-import Stars from '../resources/stars.jpg';
 
 export default function Course_div({ data }) {
 

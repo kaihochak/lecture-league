@@ -1,6 +1,5 @@
 import '../styles/Reviews.css';
 import React, { useState, useEffect, useContext } from 'react';
-import Date from './Date';
 import thumbsUpBlank from '../resources/thumbs-up.svg';
 import thumbsUpGreen from '../resources/thumbs-up-green.svg';
 import thumbsDownBlank from '../resources/thumbs-down.svg';
@@ -10,21 +9,21 @@ import { UserContext } from "../UserContext";
 import { Rating } from '@mui/material';
 import { StarIcon } from 'lucide-react';
 
-
-function OverarallReviews({ data, index }) {
+function OverarallReviews({ isEditable, data, index }) {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
     const [professor, setProfessor] = useState("");
-    const [difficulty, setDifficulty] = useState("");
-    const [workload, setWorkload] = useState("");
-    const [usefulness, setUsefulness] = useState("");
     const [review, setReview] = useState("");
     const [university, setUniversity] = useState("");
     const [course, setCourse] = useState("");
     const [likedCount, setLikedCount] = useState(8);
     const [dislikedCount, setDislikedCount] = useState(3);
     const [submissionDate, setSubmissionDate] = useState("");
+    const [difficulty, setDifficulty] = useState(0);
+    const [workload, setWorkload] = useState(0);
+    const [usefulness, setUsefulness] = useState(0);
     const { username } = useContext(UserContext);
+
 
     useEffect(() => {
         if (data) {
@@ -99,10 +98,10 @@ function OverarallReviews({ data, index }) {
         APIService.UpdateReview(postData, data.id);
     };
 
+
     return (
         <div className='font-Montserrat shadow-lg rounded-sm bg-primary
-                        my-6 p-2 md:p-4 items-center justify-between'>
-            {/* Info */}
+                                my-6 p-2 md:p-4 items-center justify-between'>
             <div className='flex flex-col'>
                 {/* prof & date */}
                 <div className='flex justify-between mx-6 my-2'>
@@ -168,7 +167,6 @@ function OverarallReviews({ data, index }) {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
