@@ -101,7 +101,7 @@ const SignupPage = (props) => {
 
                 if (resp.success) {
                     console.log("Registration successful", resp.data);
-                    navigate('/home'); // Redirect to home page on successful registration
+                    navigate('/'); // Redirect to home page on successful registration
                     setIsLoggedIn(true); // Update the login state to reflect that the user is logged in
                 } else {
                     console.log("Registration failed", resp.error);

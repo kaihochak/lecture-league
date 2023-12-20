@@ -7,12 +7,11 @@ import { UserProvider } from './UserContext.js';
 import LandingPage from './pages/LandingPage.js';
 import SignupPage from './pages/SignupPage.js';
 import LoginPage from './pages/LoginPage.js';
-import MyProfile from './pages/MyProfle.js';
-import AdminPage from './pages/AdminPage.js';
-import ReviewPage from './pages/ReviewPage.js';
+import MyReviews from './pages/MyReviews.js';
+import CreateReview from './pages/CreateReview.js';
 import UniversityPage from './pages/UniversityPage.js';
 import OverallCourseReviews from './pages/OverallCourseReviews.js';
-import AccountSettings from './pages/AccountSettings.js';
+import Profile from './pages/Profile.js';
 
 function App() {
   return (
@@ -23,15 +22,11 @@ function App() {
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/signup" element={<SignupPage />} />
             <Route exact path="/login" element={<LoginPage />} />
-            <Route exact path="/AccountSettings" element={<AccountSettings />} />
-            <Route exact path="/MyProfile" element={<MyProfile />} />
-
-            <Route exact path="/home" element={<LandingPage />} />
+            <Route exact path="/profile" element={<Profile />} />
+            <Route exact path="/my-reviews" element={<MyReviews />} />
             <Route exact path="/UniversityPage/:universityName/" element={<UniversityPage />} />
             <Route exact path="/overallCourseReview/:courseName/" element={<OverallCourseReviews />} />
-            <Route exact path="/review/:courseName/" element={<ReviewPage />} />
-            
-            <Route exact path="/AdminPage" element={<AdminPage />} />
+            <Route exact path="/review/:courseName/" element={<CreateReview />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>

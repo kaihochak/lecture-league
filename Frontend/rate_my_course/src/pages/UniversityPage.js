@@ -212,8 +212,8 @@ function UniversityPage() {
       </div>
 
       {/* Display search results */}
-      {filteredResults.map((result) => (
-        <CourseDiv data={result} key={result.id} />
+      {filteredResults.map((result, index) => (
+        <CourseDiv data={result} key={index} />
       ))}
     </div>
   );

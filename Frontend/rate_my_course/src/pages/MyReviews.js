@@ -1,26 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
-import arrowLeft from '../resources/arrow-left.svg';
 import '../styles/MyReviews.css';
-import userImage from '../resources/user-image.svg';
 import bookMark from '../resources/bookmark.svg';
 import bookMarkBlank from '../resources/bookmark-blank.svg';
-import StaticReview from "../components/StaticReview";
 import EditableReview from "../components/EditableReview";
 import RatedReview from "../components/RatedReview";
-import { Link } from "react-router-dom";
-import { useNavigate  } from "react-router-dom";
 import Header from '../components/Header';
 import Coursediv from "../components/WatchedCourseDiv";
 import { UserContext } from "../UserContext";
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from "../components/ui/tabs"
 
-
-const MyProfile = () => {
+const MyReviews = () => {
     const [activeTab, setActiveTab] = useState('myReviews');
     const [coursesToRemove, setCoursesToRemove] = useState([]);
     const [myReviews, setmyReviews] = useState([]);
-    const navigate = useNavigate();
     const { username } = useContext(UserContext);
-    
 
     useEffect(() => {
         fetch(`http://localhost:8000/api/Review/?user=${username}`, {
@@ -29,18 +27,14 @@ const MyProfile = () => {
                 'Content-Type': 'application/json',
             }
         })
-        .then(resp => resp.json())
-        .then(data => {
-            setmyReviews(Array.isArray(data) ? data : [data]);
-        })
-        .catch(error => console.log(error));
-    }, [username]); // Add username to dependency array if it's dynamic
+            .then(resp => resp.json())
+            .then(data => {
+                setmyReviews(Array.isArray(data) ? data : [data]);
+            })
+            .catch(error => console.log(error));
+    }, [username]);
 
-
-    let name = "Jane Doe";
-    let yearOfStudy = "3rd Year";
-    let course = "Computer Science"
-    let university = "University of Calgary";
+    let name = username;
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
@@ -80,12 +74,11 @@ const MyProfile = () => {
             }
         }
     ];
-    
+
     // backend to fill up this list accordingly
     const [reviewData, setReviewData] = useState([
         { id: 1, content: <EditableReview key={1} /> },
         { id: 2, content: <EditableReview key={2} /> }
-        // Assuming you add an 'id' field for identification
     ]);
 
     // backend to implement rest of this function
@@ -101,76 +94,32 @@ const MyProfile = () => {
 
     return (
         <div>
-            <Header/>
+            <Header />
             <div className="flex flex-col w-full">
-                <div className="top-row">
-                    <img src = {arrowLeft} 
-                    className="arrow-left" 
-                    alt="arrow-left"
-                    onClick={() => navigate(-1)}/>
-                </div>
-                <div className="user-info justify-center">
-                    <div className="userImage">
-                        <img src = {userImage} className="user-image" alt="user-image"/>
-                    </div>
-                    <div className="flex flex-col ml-2 justify-center font-bold">
-                        <div className="user-name">
-                            <p>{name}</p>
-                        </div>
-                        {/* <div className="user-year">
-                            <p>{yearOfStudy}</p>
-                        </div>
-                        <div className="user-course">
-                            <p>{course} Student</p>
-                        </div>
-                        <div className="user-university">
-                            <p>{university}</p>
-                        </div> */}
-                    </div>
-                </div>
-                <div className='nav-bar md:text-lg text-md flex-row justify-around align-middle'>
-                    <div
-                        className={`nav-bar-item ${activeTab === 'myReviews' ? 'active2' : ''}`}
-                        onClick={() => handleTabClick('myReviews')}
-                    >
-                        <p>My Reviews</p>
-                    </div>
-                    <div
-                        className={`nav-bar-item ${activeTab === 'ratedReviews' ? 'active2' : ''}`}
-                        onClick={() => handleTabClick('ratedReviews')}
-                    >
-                        <p>Rated Reviews</p>
-                    </div>
-                    <div 
-                        className={`nav-bar-item ${activeTab === 'watchedCourses' ? 'active2' : ''}`}
-                        onClick={() => handleTabClick('watchedCourses')}
-                    >
-                        <p>Watched Courses</p>
-                    </div>
-                </div>
+                <Tabs defaultValue="Reviews">
+                    <TabsList className="grid w-[80%] mx-auto mt-10 grid-cols-3">
+                        <TabsTrigger value="Reviews">My Reviews</TabsTrigger>
+                        <TabsTrigger value="RatedReviews">Rated Reviews</TabsTrigger>
+                        <TabsTrigger value="Saved">Saved</TabsTrigger>
+                    </TabsList>
 
-                <div className="content2">
-                    {activeTab === 'myReviews' && (
-                        <div className="review-content">
-                            <Link to="/Review">
-                                <button className={`new-review-button`}>
-                                    New Review
-                                </button>
-                            </Link>
-                            <div>
-                                {myReviews.map((review, index) => (
-                                    <div key={index} className="review">
-                                        <EditableReview
-                                            data={review}
-                                            id={review.id}
-                                            onDelete={handleDeleteReview}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
+                    {/* My Reviews */}
+                    <TabsContent value="Reviews">
+                        <div className="w-full">
+                            {myReviews.map((review, index) => (
+                                <div key={index}>
+                                    <EditableReview
+                                        data={review}
+                                        id={review.id}
+                                        onDelete={handleDeleteReview}
+                                    />
+                                </div>
+                            ))}
                         </div>
-                    )}
-                    {activeTab === 'ratedReviews' && (
+                    </TabsContent>
+
+                    {/* Rated Reviews */}
+                    <TabsContent value="RatedReviews">
                         <div className="rated-reviews">
                             <div>
                                 {likedReviews.map((ratedReview, index) => (
@@ -180,8 +129,10 @@ const MyProfile = () => {
                                 ))}
                             </div>
                         </div>
-                    )}
-                    {activeTab === 'watchedCourses' && (
+                    </TabsContent>
+
+                    {/* Saved */}
+                    <TabsContent value="Saved">
                         <div className="watched-courses">
                             <div className="header">Your watched courses</div>
                             {coursesData.map((course) => (
@@ -201,10 +152,10 @@ const MyProfile = () => {
                                 </div>
                             ))}
                         </div>
-                    )}
-                </div>
+                    </TabsContent>
+                </Tabs>
             </div>
         </div>
     )
 }
-export default MyProfile;
+export default MyReviews;

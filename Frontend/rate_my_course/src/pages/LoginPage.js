@@ -20,7 +20,7 @@ const LoginPage = (props) => {
     
     useEffect(() => {
         if(token['mytoken']) {
-            navigate('/home');
+            navigate('/');
         }
     }, [token, navigate]);
 
@@ -50,7 +50,7 @@ const LoginPage = (props) => {
                     setIsLoggedIn(true); // Update the login state
                     setUsername(username);
                     localStorage.setItem('username', username);
-                    navigate('/home');
+                    navigate('/');
                 } else {
                     setEmailError("Incorrect credentials, please try again");
                     setPasswordError("Incorrect credentials, please try again");

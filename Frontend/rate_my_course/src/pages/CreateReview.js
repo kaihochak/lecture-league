@@ -30,12 +30,12 @@ function RatingSet({ label, rating, setRating }) {
           aria-label={`Set ${label} to ${level}`}
         />
       ))}
-      <span>{label}</span>      
+      <span>{label}</span>
     </div>
   );
 }
 
-function Reviews() {
+function CreateReview() {
   const navigate = useNavigate();
   // const [token] = useCookies(['myToken'])
   const [professor, setProfessor] = useState('');
@@ -222,60 +222,53 @@ function Reviews() {
               <Input value={professor} className="border-2" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />
               {/* Review */}
               <Textarea
-                  placeholder="What do you want others to know about this class?"
-                  className="sm:min-h-[150px] resize-none"
-                  value={comments}
-                  // {...field}
-                  onChange={(e) => setComments(e.target.value)}
+                placeholder="What do you want others to know about this class?"
+                className="sm:min-h-[150px] resize-none"
+                value={comments}
+                // {...field}
+                onChange={(e) => setComments(e.target.value)}
               />
             </div>
-            {/* Ratings & Submit */}
-            <div className='flex flex-col justify-between h-full'>
-              {/* Ratings */}
-              <div className='flex flex-col  gap-x-6'>
-                {/* Difficult */}
-                <div className='flex justify-between gap-x-6'>
-                  <div className='font-semibold w-26'>Difficulty </div>
-                  <Rating
-                    name="text-feedback"
-                    value={difficulty}
-                    precision={1}
-                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    onChange={(event, newValue) => {
-                      setDifficulty(newValue);
-                    }}
-                  />
-                </div>
-                {/* Workload */}
-                <div className='flex justify-between gap-x-6'>
-                  <div className='font-semibold w-26'>Workload </div>
-                  <Rating
-                    name="text-feedback"
-                    value={workload}
-                    precision={1}
-                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    onChange={(event, newValue) => {
-                      setWorkload(newValue);
-                    }}
-                  />
-                </div>
-                {/* Usefulness */}
-                <div className='flex justify-between'>
-                  <div className='font-semibold w-26'>Usefulness </div>
-                  <Rating
-                    name="text-feedback"
-                    value={usefulness}
-                    precision={1}
-                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    onChange={(event, newValue) => {
-                      setUsefulness(newValue);
-                    }}
-                  />
-                </div>
+            {/* Ratings */}
+            <div className='flex flex-col  gap-x-6'>
+              {/* Difficult */}
+              <div className='flex justify-between gap-x-6'>
+                <div className='font-semibold w-26'>Difficulty </div>
+                <Rating
+                  name="text-feedback"
+                  value={difficulty}
+                  precision={1}
+                  emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                  onChange={(event, newValue) => {
+                    setDifficulty(newValue);
+                  }}
+                />
               </div>
-              {/* Submit Button */}
-              <div className='flex justify-end '>
-                <Button className="text-md mt-4" variant="secondary" onClick={handleSaveChanges}>Submit</Button>
+              {/* Workload */}
+              <div className='flex justify-between gap-x-6'>
+                <div className='font-semibold w-26'>Workload </div>
+                <Rating
+                  name="text-feedback"
+                  value={workload}
+                  precision={1}
+                  emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                  onChange={(event, newValue) => {
+                    setWorkload(newValue);
+                  }}
+                />
+              </div>
+              {/* Usefulness */}
+              <div className='flex justify-between'>
+                <div className='font-semibold w-26'>Usefulness </div>
+                <Rating
+                  name="text-feedback"
+                  value={usefulness}
+                  precision={1}
+                  emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                  onChange={(event, newValue) => {
+                    setUsefulness(newValue);
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -288,60 +281,19 @@ function Reviews() {
             {errorMessages.difficulty && <div className="text-red-500">{errorMessages.difficulty}</div>}
             {errorMessages.workload && <div className="text-red-500">{errorMessages.workload}</div>}
             {errorMessages.usefulness && <div className="text-red-500">{errorMessages.usefulness}</div>}
-          </div>  
-        </div>
-
-        {/* Old Form */}
-        <div className="review-container">
-          <div className='form-container'>
-            <div className='ml-4 mr-4'>
-              <div className='flex flex-col items-center md:items-start py-2'>
-                {errorMessages.university && <div className="text-red-500">{errorMessages.university}</div>}
-                {errorMessages.courseCode && <div className="text-red-500">{errorMessages.courseCode}</div>}
-                {errorMessages.comments && <div className="text-red-500">{errorMessages.comments}</div>}
-                {errorMessages.professor && <div className="text-red-500">{errorMessages.professor}</div>}
-                {errorMessages.difficulty && <div className="text-red-500">{errorMessages.difficulty}</div>}
-                {errorMessages.workload && <div className="text-red-500">{errorMessages.workload}</div>}
-                {errorMessages.usefulness && <div className="text-red-500">{errorMessages.usefulness}</div>}
-              </div>
-              <input
-                type="text"
-                value={professor}
-                onChange={(e) => setProfessor(e.target.value)}
-                className="form-input rounded-full py-2 px-4 border-2 border-tertiary my-4 mr-5 w-full md:w-min"
-                placeholder="Professor's Name"
-              />
-            </div>
-            <div className='my-4 pl-4'>
-              <RatingSet label='Difficulty' rating={difficulty} setRating={setDifficulty} />
-            </div>
-            <div className='my-4 pl-4'>
-              <RatingSet label='Workload' rating={workload} setRating={setWorkload} />
-            </div>
-            <div className='my-4 pl-4'>
-              <RatingSet label='Usefulness' rating={usefulness} setRating={setUsefulness} />
-            </div>
-            <textarea
-              value={comments}
-              onChange={(e) => setComments(e.target.value)}
-              className='form-input flex-grow py-2 px-4 border-2 border-tertiary my-4 mx-5 sm:min-h-[200px]'
-              placeholder='What do you want others to know about this class?'
-            ></textarea>
           </div>
         </div>
-        <div className='buttons-container'>
-          <button
-            className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
-            onClick={() => navigate(-1)}>
-            Cancel</button>
-          <button
-            className='rounded-xl h-20 w-28 bg-secondary text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline hover:bg-secondary m-3'
-            onClick={handleSaveChanges}>
-            Submit</button>
+
+        {/* Buttons */}
+        <div className='flex justify-between'>
+          {/* Cancel */}
+          <Button className="text-md mt-4" variant="secondary" onClick={() => navigate(-1)}>Cancel</Button>
+          {/* Submit Button */}
+          <Button className="text-md mt-4" variant="secondary" onClick={handleSaveChanges}>Submit</Button>
         </div>
       </div>
     </div>
   );
 }
 
-export default Reviews;
+export default CreateReview;

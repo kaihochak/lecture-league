@@ -186,7 +186,7 @@ function OverallCourseReviews() {
                                                 name="text-feedback"
                                                 value={course.average_difficulty}
                                                 readOnly
-                                                precision={0.05}
+                                                precision={0.1}
                                                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                             />
                                             <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
@@ -200,7 +200,7 @@ function OverallCourseReviews() {
                                                 name="text-feedback"
                                                 value={course.average_workload}
                                                 readOnly
-                                                precision={0.05}
+                                                precision={0.1}
                                                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                             />
                                             <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
@@ -214,7 +214,7 @@ function OverallCourseReviews() {
                                                 name="text-feedback"
                                                 value={course.average_usefulness}
                                                 readOnly
-                                                precision={0.05}
+                                                precision={0.1}
                                                 emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                             />
                                             <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>

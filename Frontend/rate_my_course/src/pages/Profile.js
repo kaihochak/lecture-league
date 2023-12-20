@@ -7,7 +7,7 @@ import AccountSettingsMain from "./AccountSettingsAccount";
 import { useCookies } from 'react-cookie';
 import APIService from "../APIService";
 
-const AccountSettings = () => {
+const Profile = () => {
 
     const [activePage, setActivePage] = useState('account');
     const [userData, setUserData] = useState(null);
@@ -62,4 +62,4 @@ const AccountSettings = () => {
     );
 };
 
-export default AccountSettings;
+export default Profile;
