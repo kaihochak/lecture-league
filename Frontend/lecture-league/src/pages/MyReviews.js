@@ -5,7 +5,7 @@ import bookMarkBlank from '../resources/bookmark-blank.svg';
 import EditableReview from "../components/EditableReview";
 import RatedReview from "../components/RatedReview";
 import Header from '../components/Header';
-import Coursediv from "../components/WatchedCourseDiv";
+import Coursediv from "../components/CourseDiv";
 import { UserContext } from "../UserContext";
 import {
     Tabs,
@@ -54,13 +54,14 @@ const MyReviews = () => {
     // backend to fill up this list accordingly
     const coursesData = [
         {
-            name: "SENG 513",
+            name: "SENG 550",
             mockData: {
                 id: 1,
                 name: "SENG 550",
-                workload: 3,
-                difficulty: 4,
-                usefulness: 5,
+                title: "Big Data",
+                average_workload: 3,
+                average_difficulty: 4,
+                average_usefulness: 5,
             }
         },
         {
@@ -68,9 +69,10 @@ const MyReviews = () => {
             mockData: {
                 id: 2,
                 name: "SENG 511",
-                workload: 3,
-                difficulty: 4,
-                usefulness: 5,
+                title: "Small Data",
+                average_workload: 3,
+                average_difficulty: 4,
+                average_usefulness: 5,
             }
         }
     ];
@@ -133,22 +135,20 @@ const MyReviews = () => {
 
                     {/* Saved */}
                     <TabsContent value="Saved">
-                        <div className="watched-courses">
-                            <div className="header">Your watched courses</div>
+                        <div className="w-full">
                             {coursesData.map((course) => (
                                 <div key={course.name} className="course">
-                                    <div className="course-information mt-4">
+                                    <div className="flex justify-center">
+                                        {course.mockData && (
+                                            <Coursediv data={course.mockData} />
+                                        )}
                                         <img
                                             src={coursesToRemove.includes(course.name) ? bookMarkBlank : bookMark}
-                                            className="bookmark"
+                                            className="w-6 h-6 place-self-center"
                                             alt="bookmark"
                                             onClick={() => handleBookmarkClick(course.name)}
                                         />
-                                        {course.name}
                                     </div>
-                                    {course.mockData && (
-                                        <Coursediv data={course.mockData} />
-                                    )}
                                 </div>
                             ))}
                         </div>

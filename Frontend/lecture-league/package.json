@@ -1,5 +1,5 @@
 {
-  "name": "rate_my_course",
+  "name": "lecture-league",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,9 @@
     "@mui/material": "^5.15.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@testing-library/jest-dom": "^5.17.0",

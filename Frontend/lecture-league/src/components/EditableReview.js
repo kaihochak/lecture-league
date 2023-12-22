@@ -2,6 +2,7 @@ import '../styles/Reviews.css';
 import editImage from '../resources/edit.svg';
 import deleteImage from '../resources/delete.svg';
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import APIService from '../APIService';
 import { Box, Rating } from '@mui/material';
 import { UserContext } from "../UserContext";
@@ -13,6 +14,7 @@ import thumbsUpBlank from '../resources/thumbs-up.svg';
 import thumbsDownBlank from '../resources/thumbs-down.svg';
 import { CiCircleCheck, CiEdit, CiTrash } from "react-icons/ci";
 import { CiCircleRemove } from "react-icons/ci";
+import { Separator } from '../components/ui/separator';
 
 function RatingSet({ label, rating, setRating, editable }) {
   const levels = [1, 2, 3, 4, 5];
@@ -108,43 +110,11 @@ function EditableReview({ data, id, onDelete }) {
     setEditable(!editable);
   };
 
-  const handleProfessorChange = (e) => {
-    setProfessor(e.target.value);
-    setCurrentState((prevState) => ({
-      ...prevState,
-      professor: e.target.value,
-    }));
-  };
-
   const handleCommentsChange = (e) => {
     setComments(e.target.value);
     setCurrentState((prevState) => ({
       ...prevState,
       comments: e.target.value,
-    }));
-  };
-
-  const handleDifficultyChange = (value) => {
-    setDifficulty(value);
-    setCurrentState((prevState) => ({
-      ...prevState,
-      difficulty: value,
-    }));
-  };
-
-  const handleWorkloadChange = (value) => {
-    setWorkload(value);
-    setCurrentState((prevState) => ({
-      ...prevState,
-      workload: value,
-    }));
-  };
-
-  const handleUsefulnessChange = (value) => {
-    setUsefulness(value);
-    setCurrentState((prevState) => ({
-      ...prevState,
-      usefulness: value,
     }));
   };
 
@@ -201,12 +171,30 @@ function EditableReview({ data, id, onDelete }) {
                                 my-6 p-2 md:p-4 items-center justify-between'>
 
         <div className='flex flex-col gap-y-2 w-full'>
-          {/* prof & date */}
+          {/* info */}
           <div className='flex justify-between mx-6 my-2'>
-            {editable ?
-              (<Input value={professor} className="border-2" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />) :
-              (<div><span className='font-semibold'>Professor: </span>{professor}</div>)
-            }
+            <div className='flex justify-start gap-x-6'>
+              {/* professor */}
+              {editable ?
+                (<Input value={professor} className="w-48" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />) :
+                (<div><span className='font-semibold'>Professor: </span>{professor}</div>)
+              }
+              {/* university */}
+              <Separator orientation="vertical" />
+              <Link
+                to={`/UniversityPage/${encodeURIComponent(university)}`}
+              >
+                <div className='font-normal hover:underline'>{university}</div>
+              </Link>
+              {/* course */}
+              <Separator orientation="vertical" />
+              <Link
+                to={`/overallCourseReview/${encodeURIComponent(course)}`}
+              >
+                <div className='font-normal hover:underline'>{course}</div>
+              </Link>
+
+            </div>
             <div>{submissionDate}</div>
           </div>
           {/* Main Content */}
@@ -266,7 +254,7 @@ function EditableReview({ data, id, onDelete }) {
                     </div>
                     {/* Like Dislike */}
                     <div className='flex flex-row md:flex-col items-center'>
-                      <div className='font-semibold flex'>
+                      <div className='font-semibold flex gap-x-4'>
                         <img src={thumbsUpBlank} className="h-6 w-6" alt="thumbs-up" />
                         <span className="text-md text-black ml-1">{likedCount}</span>
                         <img src={thumbsDownBlank} className="h-6 w-6" alt="thumbs-down" />
@@ -352,19 +340,19 @@ function EditableReview({ data, id, onDelete }) {
         {editable ? (
           <>
             <div className="cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleSaveChanges}>
-              <CiCircleCheck className='text-[#006400]'/>
+              <CiCircleCheck className='text-[#006400]' />
             </div>
             <div className="cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleDiscardChanges}>
-              <CiCircleRemove className='text-[#8b0000]'/>
+              <CiCircleRemove className='text-[#8b0000]' />
             </div>
           </>
         ) : (
           <>
             <div className="cursor-pointer text-2xl md:text-2xl lg:text-4xl" onClick={handleEditClick}>
-              <CiEdit className='text-accent'/>
+              <CiEdit className='text-accent' />
             </div>
             <div className="cursor-pointer text-2xl md:text-2xl lg:text-4xl" onClick={handleDeleteClick}>
-              <CiTrash className='text-accent'/>
+              <CiTrash className='text-accent' />
             </div>
           </>
         )}

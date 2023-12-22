@@ -12,7 +12,7 @@ Access the application at `localhost`.
 To run the application without Docker:
 1. Open two terminals.
 2. In the first terminal, navigate to `/Backend` and run: `python3 manage.py runserver`.
-3. In the other terminal, navigate to `/Frontend/rate_my_course/` run: `npm start`.
+3. In the other terminal, navigate to `/Frontend/lecture-league/` run: `npm start`.
 
 ### Admin Page
 For the admin page, visit `localhost:8000`.

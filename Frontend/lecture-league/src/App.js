@@ -4,7 +4,7 @@ import {CookiesProvider} from 'react-cookie';
 import { UserProvider } from './UserContext.js';
 
 // Pages
-import LandingPage from './pages/LandingPage.js';
+import HomePage from './pages/Home.js';
 import SignupPage from './pages/SignupPage.js';
 import LoginPage from './pages/LoginPage.js';
 import MyReviews from './pages/MyReviews.js';
@@ -19,7 +19,7 @@ function App() {
       <UserProvider>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<LandingPage />} />
+            <Route exact path="/" element={<HomePage />} />
             <Route exact path="/signup" element={<SignupPage />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/profile" element={<Profile />} />
