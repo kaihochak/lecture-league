@@ -97,9 +97,9 @@ const MyReviews = () => {
             <Header />
             <div className="flex flex-col w-full">
                 <Tabs defaultValue="Reviews">
-                    <TabsList className="grid w-[80%] mx-auto mt-10 grid-cols-3">
+                    <TabsList className="grid w-[80%] mx-auto mt-10 grid-cols-2">
                         <TabsTrigger value="Reviews">My Reviews</TabsTrigger>
-                        <TabsTrigger value="RatedReviews">Rated Reviews</TabsTrigger>
+                        {/* <TabsTrigger value="RatedReviews">Rated Reviews</TabsTrigger> */}
                         <TabsTrigger value="Saved">Saved</TabsTrigger>
                     </TabsList>
 
@@ -119,7 +119,7 @@ const MyReviews = () => {
                     </TabsContent>
 
                     {/* Rated Reviews */}
-                    <TabsContent value="RatedReviews">
+                    {/* <TabsContent value="RatedReviews">
                         <div className="rated-reviews">
                             <div>
                                 {likedReviews.map((ratedReview, index) => (
@@ -129,7 +129,7 @@ const MyReviews = () => {
                                 ))}
                             </div>
                         </div>
-                    </TabsContent>
+                    </TabsContent> */}
 
                     {/* Saved */}
                     <TabsContent value="Saved">

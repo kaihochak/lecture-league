@@ -11,7 +11,8 @@ import { Button } from '../components/ui/button';
 import { Textarea } from '../components/ui/textarea';
 import thumbsUpBlank from '../resources/thumbs-up.svg';
 import thumbsDownBlank from '../resources/thumbs-down.svg';
-
+import { CiCircleCheck, CiEdit, CiTrash } from "react-icons/ci";
+import { CiCircleRemove } from "react-icons/ci";
 
 function RatingSet({ label, rating, setRating, editable }) {
   const levels = [1, 2, 3, 4, 5];
@@ -346,24 +347,24 @@ function EditableReview({ data, id, onDelete }) {
         </div>
       </div>
 
-      {/* Edit & Delete */}
-      <div className="flex flex-row md:flex-col justify-evenly mt-4 md:mt-0 md:ml-8  md:mr-0">
+      {/* Edit & Delete Buttons */}
+      <div className="flex flex-row md:flex-col justify-evenly mt-4 md:mt-0 md:ml-4  md:mr-0">
         {editable ? (
           <>
-            <div className="save-button cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleSaveChanges}>
-              ✔
+            <div className="cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleSaveChanges}>
+              <CiCircleCheck className='text-[#006400]'/>
             </div>
-            <div className="discard-button cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleDiscardChanges}>
-              X
+            <div className="cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleDiscardChanges}>
+              <CiCircleRemove className='text-[#8b0000]'/>
             </div>
           </>
         ) : (
           <>
-            <div className="edit-button cursor-pointer" onClick={handleEditClick}>
-              <img src={editImage} className=" h-10 w-10 md:w-12 md:h-12" alt="edit-image" />
+            <div className="cursor-pointer text-2xl md:text-2xl lg:text-4xl" onClick={handleEditClick}>
+              <CiEdit className='text-accent'/>
             </div>
-            <div className="delete-button cursor-pointer" onClick={handleDeleteClick}>
-              <img src={deleteImage} className="h-10 w-10 md:w-12 md:h-12" alt="delete-image" />
+            <div className="cursor-pointer text-2xl md:text-2xl lg:text-4xl" onClick={handleDeleteClick}>
+              <CiTrash className='text-accent'/>
             </div>
           </>
         )}
