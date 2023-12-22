@@ -1,4 +1,4 @@
-# Rate_My_Course
+# lecture-league
 
 ## How to Run with Docker
 Navigate to the root folder where the `docker-compose.yml` file is located.
