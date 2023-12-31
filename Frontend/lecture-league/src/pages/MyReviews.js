@@ -34,11 +34,6 @@ const MyReviews = () => {
             .catch(error => console.log(error));
     }, [username]);
 
-    let name = username;
-    const handleTabClick = (tab) => {
-        setActiveTab(tab);
-    };
-
     const handleBookmarkClick = (courseName) => {
         const isSelected = coursesToRemove.includes(courseName);
 
@@ -98,6 +93,12 @@ const MyReviews = () => {
         <div>
             <Header />
             <div className="flex flex-col w-full">
+                {/* Title */}
+                <div className="flex flex-col items-center justify-center mt-10">
+                    <h1 className="text-4xl font-semibold">Reviews</h1>
+                </div>
+
+                {/* Tabs */}
                 <Tabs defaultValue="Reviews">
                     <TabsList className="grid w-[80%] mx-auto mt-10 grid-cols-2">
                         <TabsTrigger value="Reviews">My Reviews</TabsTrigger>
@@ -137,14 +138,14 @@ const MyReviews = () => {
                     <TabsContent value="Saved">
                         <div className="w-full">
                             {coursesData.map((course) => (
-                                <div key={course.name} className="course">
+                                <div key={course.name} className="course my-2">
                                     <div className="flex justify-center">
                                         {course.mockData && (
                                             <Coursediv data={course.mockData} />
                                         )}
                                         <img
                                             src={coursesToRemove.includes(course.name) ? bookMarkBlank : bookMark}
-                                            className="w-6 h-6 place-self-center"
+                                            className="w-6 h-6 m-4 place-self-center"
                                             alt="bookmark"
                                             onClick={() => handleBookmarkClick(course.name)}
                                         />

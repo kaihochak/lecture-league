@@ -16,40 +16,18 @@ import { CiCircleCheck, CiEdit, CiTrash } from "react-icons/ci";
 import { CiCircleRemove } from "react-icons/ci";
 import { Separator } from '../components/ui/separator';
 
-function RatingSet({ label, rating, setRating, editable }) {
-  const levels = [1, 2, 3, 4, 5];
-
-  return (
-    <div className="flex items-center space-x-2">
-      {levels.map((level) => (
-        <button
-          key={level}
-          className={`h-8 w-8 rounded-full ${(rating >= level && editable) ? 'bg-secondary' :
-            (rating <= level && editable) ? 'bg-secondary' :
-              (rating >= level && !editable) ? 'bg-gray-600' :
-                'bg-gray-400' // default background color if not editable or other conditions are not met
-            } ${editable ? 'cursor-pointer' : 'cursor-default'}`}
-          onClick={() => (editable ? setRating(level) : null)}
-          aria-label={`Set ${label} to ${level}`}
-        />
-      ))}
-      <span>{label}</span>
-    </div>
-  );
-}
-
 function EditableReview({ data, id, onDelete }) {
-  const [university, setUniversity] = useState(data.university || 'University of Calgary');
-  const [course, setCourse] = useState(data.course || '513');
-  const [professor, setProfessor] = useState(data.professor || 'Professor');
+  const [university, setUniversity] = useState(data.university || 'null');
+  const [course, setCourse] = useState(data.course || 'null');
+  const [professor, setProfessor] = useState(data.professor || 'null');
   const [difficulty, setDifficulty] = useState(data.difficulty || 0);
   const [workload, setWorkload] = useState(data.workload || 0);
   const [usefulness, setUsefulness] = useState(data.usefulness || 0);
-  const [comments, setComments] = useState(data.review || 'No review available.');
+  const [comments, setComments] = useState(data.review || 'null');
   const [submissionDate, setSubmissionDate] = useState(data.submission_date || '');
   const { username } = useContext(UserContext);
-  const [likedCount, setLikedCount] = useState(data.likes || 0);
-  const [dislikedCount, setDislikedCount] = useState(data.dislikes || 0);
+  const likedCount = data.likes;
+  const dislikedCount = data.dislikes;
 
   const [editable, setEditable] = useState(false);
 
@@ -200,18 +178,18 @@ function EditableReview({ data, id, onDelete }) {
           {/* Main Content */}
           {editable ?
             (
-              <div className='flex flex-col mx-6 my-2 gap-x-10 justify-between'>
-                <div className='flex'>
+              <div className='flex flex-col mx-6 my-2 justify-between'>
+                <div className='flex gap-x-10'>
                   <Textarea
                     placeholder="What do you want others to know about this class?"
-                    className="sm:min-h-[150px] resize-none"
+                    className="md:w-[80%] sm:min-h-[140px] resize-none"
                     value={comments}
                     // {...field}
                     onChange={(e) => setComments(e.target.value)}
                   />
                   <div className='flex flex-col justify-around'>
                     {/* Ratings */}
-                    <div className='flex flex-col  gap-x-6'>
+                    <div className='flex flex-col gap-x-6'>
                       {/* Difficult */}
                       <div className='flex justify-between gap-x-6'>
                         <div className='font-semibold w-26'>Difficulty </div>
@@ -254,11 +232,15 @@ function EditableReview({ data, id, onDelete }) {
                     </div>
                     {/* Like Dislike */}
                     <div className='flex flex-row md:flex-col items-center'>
-                      <div className='font-semibold flex gap-x-4'>
-                        <img src={thumbsUpBlank} className="h-6 w-6" alt="thumbs-up" />
-                        <span className="text-md text-black ml-1">{likedCount}</span>
-                        <img src={thumbsDownBlank} className="h-6 w-6" alt="thumbs-down" />
-                        <span className="text-md text-black ml-1">{dislikedCount}</span>
+                      <div className='flex gap-x-4 font-semibold'>
+                        <div className='flex flex-col items-center'>
+                          <img src={thumbsUpBlank} className="h-6 w-6 my-2" alt="thumbs-up" />
+                          <span className="text-md text-black">{likedCount}</span>
+                        </div>
+                        <div className='flex flex-col items-center'>
+                          <img src={thumbsDownBlank} className="h-6 w-6 my-2" alt="thumbs-down" />
+                          <span className="text-md text-black">{dislikedCount}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -321,11 +303,15 @@ function EditableReview({ data, id, onDelete }) {
                   </div>
                   {/* Like Dislike */}
                   <div className='flex flex-row md:flex-col items-center'>
-                    <div className='font-semibold flex'>
-                      <img src={thumbsUpBlank} className="h-6 w-6" alt="thumbs-up" />
-                      <span className="text-md text-black ml-1">{likedCount}</span>
-                      <img src={thumbsDownBlank} className="h-6 w-6" alt="thumbs-down" />
-                      <span className="text-md text-black ml-1">{dislikedCount}</span>
+                    <div className='flex gap-x-4 font-semibold'>
+                      <div className='flex flex-col items-center'>
+                        <img src={thumbsUpBlank} className="h-6 w-6 my-2" alt="thumbs-up" />
+                        <span className="text-md text-black">{likedCount}</span>
+                      </div>
+                      <div className='flex flex-col items-center'>
+                        <img src={thumbsDownBlank} className="h-6 w-6 my-2" alt="thumbs-down" />
+                        <span className="text-md text-black">{dislikedCount}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
