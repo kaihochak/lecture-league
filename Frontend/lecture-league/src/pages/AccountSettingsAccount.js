@@ -50,9 +50,6 @@ const AccountSettingsAccount = ({ userData, setUserData }) => {
     const [editMode, setEditMode] = useState({
         firstName: false,
         lastName: false,
-        yearOfStudy: false,
-        university: false,
-        email: false,
     });
 
     const handleEditClick = (field) => {
