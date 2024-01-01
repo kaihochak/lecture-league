@@ -1,6 +1,4 @@
 import '../styles/Reviews.css';
-import editImage from '../resources/edit.svg';
-import deleteImage from '../resources/delete.svg';
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import APIService from '../APIService';
@@ -8,7 +6,6 @@ import { Box, Rating } from '@mui/material';
 import { UserContext } from "../UserContext";
 import { StarIcon } from 'lucide-react';
 import { Input } from '../components/ui/input';
-import { Button } from '../components/ui/button';
 import { Textarea } from '../components/ui/textarea';
 import thumbsUpBlank from '../resources/thumbs-up.svg';
 import thumbsDownBlank from '../resources/thumbs-down.svg';

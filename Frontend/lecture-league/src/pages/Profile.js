@@ -2,15 +2,18 @@ import React, { useState, useEffect, useContext } from "react";
 import '../styles/AccountSettings.css';
 import Header from '../components/Header';
 import { UserContext } from "../UserContext";
-import AccountSettingsMain from "./AccountSettingsAccount";
 import { useCookies } from 'react-cookie';
 import APIService from "../APIService";
+import { CiCircleCheck, CiEdit } from "react-icons/ci";
+import { CiCircleRemove } from "react-icons/ci";
 import {
     Tabs,
     TabsContent,
     TabsList,
     TabsTrigger,
 } from "../components/ui/tabs"
+import { Input } from '../components/ui/input';
+import { Button } from "../components/ui/button"
 
 const Profile = () => {
 
@@ -18,7 +21,7 @@ const Profile = () => {
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const { username } = useContext(UserContext);
-    
+
     const [cookies, setCookie] = useCookies(['mytoken']);
     const myToken = cookies['mytoken'];
 
@@ -37,7 +40,7 @@ const Profile = () => {
 
         APIService.GetUserData(myToken, username, handleSuccess, handleError);
     }, []);
-    
+
     const handleButtonClick = (page) => {
         setActivePage(page === activePage ? page : page);
     };
@@ -55,25 +58,23 @@ const Profile = () => {
                 <Tabs defaultValue="Reviews">
                     <TabsList className="grid w-[80%] mx-auto mt-10 grid-cols-2">
                         <TabsTrigger value="Reviews">Account</TabsTrigger>
-                        {/* <TabsTrigger value="RatedReviews">Rated Reviews</TabsTrigger> */}
-                        <TabsTrigger value="Saved">Password</TabsTrigger>
+                        <TabsTrigger value="Saved">Change Password</TabsTrigger>
                     </TabsList>
 
                     {/* My Reviews */}
                     <TabsContent value="Reviews">
-                        <AccountSettingsMain userData={userData} setUserData={setUserData} />
+                        <AccountSettingsAccount userData={userData} setUserData={setUserData} />
                     </TabsContent>
 
                     {/* Saved */}
                     <TabsContent value="Saved">
-                        <AccountSettingsPassword/>
+                        <AccountSettingsPassword />
                     </TabsContent>
                 </Tabs>
             </div>
         </div>
     );
 };
-
 
 // Account Settings Account
 const AccountSettingsAccount = ({ userData, setUserData }) => {
@@ -193,83 +194,104 @@ const AccountSettingsAccount = ({ userData, setUserData }) => {
         }));
     };
 
-
     if (!userData) {
         // Render loading state ...
         return <div>Loading...</div>;
     }
 
     return (
-        <div className="mainContainer--account">
-            <div className="entireDiv">
-                <div className="textFieldContainer" id="textFieldContainer--accountSettingsAccount">
-                    <AccountInformation
-                        editable={false}
-                        label="Username"
-                        value={userData.username || ""}
-                        fieldType='text'
-                        editMode={editMode.username}
-                        onEditClick={() => handleEditClick("username")}
-                        onSaveClick={() => handleSaveClick("username")}
-                        onCancelClick={() => handleCancelClick("username")}
-                        onChange={(value) => handleInputChange("username", value)}
-                    />
-                    <label className={`text-red-600 ml-1 ${confirmUsernameChanged ? 'visible' : 'hidden'}`}>{confirmUsernameChanged}</label>
-                    <AccountInformation
-                        editable={true}
-                        label="First Name"
-                        value={userData.first_name || ""}
-                        fieldType='text'
-                        editMode={editMode.first_name}
-                        onEditClick={() => handleEditClick("first_name")}
-                        onSaveClick={() => handleSaveClick("first_name")}
-                        onCancelClick={() => handleCancelClick("first_name")}
-                        onChange={(value) => handleInputChange("first_name", value)}
-                    />
-                    <label className={`text-red-600 ml-1 ${confirmFirstNameChanged ? 'visible' : 'hidden'}`}>{confirmFirstNameChanged}</label>
-                    <AccountInformation
-                        editable={true}
-                        label="Last Name"
-                        value={userData.last_name || ""}
-                        fieldType='text'
-                        editMode={editMode.last_name}
-                        onEditClick={() => handleEditClick("last_name")}
-                        onSaveClick={() => handleSaveClick("last_name")}
-                        onCancelClick={() => handleCancelClick("last_name")}
-                        onChange={(value) => handleInputChange("last_name", value)}
-                    />
-                    <label className={`text-red-600 ml-1 ${confirmLastNameChanged ? 'visible' : 'hidden'}`}>{confirmLastNameChanged}</label>
+        <div className="flex flex-col w-[50%] mx-auto p-12 gap-y-6" id="textFieldContainer--accountSettingsAccount">
 
-                </div>
-            </div>
+            <AccountInformation
+                editable={false}
+                label="Username"
+                value={userData.username || ""}
+                fieldType='text'
+                editMode={editMode.username}
+            />
+
+            {/* first name */}
+            <label className={`text-red-600 ml-1 ${confirmUsernameChanged ? 'visible' : 'hidden'}`}>{confirmUsernameChanged}</label>
+            <AccountInformation
+                editable={true}
+                label="First Name"
+                value={userData.first_name || ""}
+                fieldType='text'
+                editMode={editMode.first_name}
+                onEditClick={() => handleEditClick("first_name")}
+                onSaveClick={() => handleSaveClick("first_name")}
+                onCancelClick={() => handleCancelClick("first_name")}
+                onChange={(value) => handleInputChange("first_name", value)}
+            />
+
+            {/* last name */}
+            <label className={`text-red-600 ml-1 ${confirmFirstNameChanged ? 'visible' : 'hidden'}`}>{confirmFirstNameChanged}</label>
+            <AccountInformation
+                editable={true}
+                label="Last Name"
+                value={userData.last_name || ""}
+                fieldType='text'
+                editMode={editMode.last_name}
+                onEditClick={() => handleEditClick("last_name")}
+                onSaveClick={() => handleSaveClick("last_name")}
+                onCancelClick={() => handleCancelClick("last_name")}
+                onChange={(value) => handleInputChange("last_name", value)}
+            />
+            <label className={`text-red-600 ml-1 ${confirmLastNameChanged ? 'visible' : 'hidden'}`}>{confirmLastNameChanged}</label>
+
         </div>
     );
 };
 
 // Custom component for each editable field
 const AccountInformation = ({ editable, label, value, editMode, onEditClick, onSaveClick, onCancelClick, onChange, fieldType }) => (
-    <div className="inputContainer--account">
-        {label && <label>{label}</label>}
-        <input
-            className="inputBox" id="inputBox--accountSettingsAccount"
+    <div className="flex items-center justify-center">
+
+        {label && (
+            <label className="w-[15%] self-center whitespace-nowrap overflow-hidden text-ellipsis flex-shrink-0 mr-2">
+                {label}
+            </label>
+        )}
+
+        {editMode ? (
+            <Input
+                className="w-[55%]"
+                type={fieldType}
+                value={value}
+                readOnly={!editMode}
+                onChange={(e) => onChange(e.target.value)}
+            />
+
+        ) : <Input disabled
+            className="w-[55%]"
             type={fieldType}
             value={value}
             readOnly={!editMode}
             onChange={(e) => onChange(e.target.value)}
         />
+
+        }
+
         {/* only show when it's editable */}
-        {editable && (
-        <div className="editButtonsContainer">
-            {editMode ? (
-                <div className="editButtons">
-                    <button id="saveButton" onClick={onSaveClick}>Save</button>
-                    <button id="cancelButton" onClick={onCancelClick}>Cancel</button>
-                </div>
-            ) : (
-                <button id="editButton" onClick={onEditClick}>Edit</button>
-            )}
-        </div>
-        )}
+        {editable ? (
+            <div className="w-[15%]">
+                {editMode ? (
+                    <div className="flex ">
+                        <div className="cursor-pointer text-lg md:text-xl lg:text-2xl ml-4" onClick={onSaveClick}>
+                            <CiCircleCheck className='text-[#006400]' />
+                        </div>
+                        <div className="cursor-pointer text-lg md:text-xl lg:text-2xl ml-4" onClick={onCancelClick}>
+                            <CiCircleRemove className='text-[#8b0000]' />
+                        </div>
+                    </div>
+
+                ) : (
+                    <div className="cursor-pointer text-lg md:text-xl lg:text-2xl ml-4" onClick={onEditClick}>
+                        <CiEdit className='text-accent' />
+                    </div>
+                )}
+            </div>
+        ) : <div className="w-[15%]"></div>}
     </div>
 );
 
@@ -288,7 +310,7 @@ const AccountSettingsPassword = () => {
     const [oldPasswordError, setOldPasswordError] = useState("");
     const [newPasswordError, setNewPasswordError] = useState("");
     const [confirmNewPasswordError, setConfirmNewPasswordError] = useState("");
-  
+
     // Success or error message
     const [message, setMessage] = useState("");
 
@@ -300,8 +322,8 @@ const AccountSettingsPassword = () => {
         setOldPasswordError("");
         setNewPasswordError("");
         setConfirmNewPasswordError("");
-        setMessage(""); 
-        
+        setMessage("");
+
         // Validate new passwords match
         if (newPassword !== confirmNewPassword) {
             setConfirmNewPasswordError("New passwords do not match");
@@ -323,59 +345,59 @@ const AccountSettingsPassword = () => {
 
         await APIService.ChangePassword(myToken, username, oldPassword, onSuccess, onError);
     };
-    
+
 
     return (
-        <div className="mainContainer--changePassword">
-            <div className="textFieldContainer">
-                <div className="titleContainer">Change Password</div>
+        <div className="flex flex-col w-[50%] mx-auto p-10 gap-y-4" >
 
-                <div className="inputContainer--accountSettingsPassword">
-                    <label className="top-label">Enter Current Password</label>
-                    <input
-                        type="password"
-                        value={oldPassword}
-                        placeholder="Enter Current Password"
-                        onChange={(ev) => setOldPassword(ev.target.value)}
-                        className={"inputBox"}
-                        id="currentPassword"
-                    />
-                    <label className={`text-red-600 ml-1 ${oldPasswordError ? 'visible' : 'hidden'}`}>{oldPasswordError}</label>
-                </div>
-                <br />
-
-                <div className="inputContainer--accountSettingsPassword">
-                    <label className="top-label">Enter New Password</label>
-                    <input
-                        type="password"
-                        value={newPassword}
-                        placeholder="Enter New Password"
-                        onChange={(ev) => setConfirmPassword(ev.target.value)}
-                        className={"inputBox"}
-                        id="newPassword"
-                    />
-                    <label className="text-red-600 ml-1">{newPasswordError}</label>
-                </div>
-
-                <br></br>
-
-                <div className="inputContainer--accountSettingsPassword">
-                    <label className="top-label">Confirm New Password</label>
-                    <input
-                        type="password"
-                        value={confirmNewPassword}
-                        placeholder="Re-type New Password"
-                        onChange={(ev) => setConfirmNewPassword(ev.target.value)}
-                        className={"inputBox"}
-                        id="retypeNewPassword"
-                    />
-                    <label className="text-red-600 ml-1">{confirmNewPasswordError}</label>
-                </div>
+            {/* current */}
+            <div className="flex gap-x-4 items-center">
+                <label className="w-[35%]">Enter Current Password</label>
+                <Input
+                    type="password"
+                    value={oldPassword}
+                    placeholder="Enter Current Password"
+                    onChange={(ev) => setOldPassword(ev.target.value)}
+                    className={"inputBox"}
+                    id="currentPassword"
+                />
             </div>
-            <br></br>
-            <div className="changePasswordButtonContainer">
-                <button id="changePasswordButton" onClick={() => handlePasswordChange(oldPassword)}>Change Password</button>
+            <label className={`text-red-600 ml-1`}>{oldPasswordError}</label>
+
+            {/* new */}
+            <div className="flex gap-x-4  items-center">
+                <label className="w-[35%]">Enter New Password</label>
+                <Input
+                    type="password"
+                    value={newPassword}
+                    placeholder="Enter New Password"
+                    onChange={(ev) => setConfirmPassword(ev.target.value)}
+                    className={"inputBox"}
+                    id="newPassword"
+                />
             </div>
+            <label className="text-red-600 ml-1">{newPasswordError}</label>
+
+            {/* confirm new */}
+            <div className="flex gap-x-4 items-center">
+                <label className="w-[35%]">Confirm New Password</label>
+                <Input
+                    type="password"
+                    value={confirmNewPassword}
+                    placeholder="Re-type New Password"
+                    onChange={(ev) => setConfirmNewPassword(ev.target.value)}
+                    className={"inputBox"}
+                    id="retypeNewPassword"
+                />
+            </div>
+            <label className="text-red-600 ml-1">{confirmNewPasswordError}</label>
+
+            {/*  button */}
+            <div className="flex mx-auto">
+                <Button onClick={() => handlePasswordChange(oldPassword)}>Change Password</Button>
+            </div>
+
+            {/* error message */}
             <label className="text-red-600 ml-1">{message}</label>
         </div>
     );
