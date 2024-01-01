@@ -53,3 +53,34 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* smaller switch for mobile */
+@media only screen and (max-width: 600px) {
+  .switch {
+    width: 40px;
+    height: 20px;
+  }
+  
+  .slider:before {
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  .slider {
+    background-color: #ccc;
+  }
+
+  input:checked + .slider {
+    background-color: #5f5c7a;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+
+  /* Rounded sliders */
+}

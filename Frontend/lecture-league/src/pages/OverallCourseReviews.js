@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
-import OverarallReviews from '../components/OverallReviews';
+import ReviewDiv from '../components/ReviewDiv';
 import Header from '../components/Header';
 import bookMark from '../resources/bookmark.svg';
 import bookMarkBlank from '../resources/bookmark-blank.svg';
@@ -165,8 +165,8 @@ function OverallCourseReviews() {
                                     {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
                                 </div>
                                 <div className='flex flex-col ml-4 text-left'>
-                                    <div className="text-2xl ">{course.name}</div>
-                                    <div >{course.title}</div>
+                                    <div className="text-base sm:text-2xl">{course.name}</div>
+                                    <div className="text-xs xs:text-sm sm:text-xl">{course.title}</div>
                                 </div>
                             </div>
                         </AccordionTrigger>
@@ -177,11 +177,11 @@ function OverallCourseReviews() {
                                     <div className="text-md ftext-left">{course.description}</div>
                                 </div>
                                 {/* ratings */}
-                                <div className='md:auto md:ml-8 md:mt-0 mt-6 text-md mr-10'>
+                                <div className='text-xs sm:text-sm mt-6 md:mt-0 md:mr-10'>
                                     {/* Difficult */}
-                                    <div className='flex justify-between gap-x-6'>
+                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
                                         <div className='font-semibold w-26'>Difficulty </div>
-                                        <div className='flex justify-between'>
+                                        <div className='flex justify-between items-center'>
                                             <Rating
                                                 name="text-feedback"
                                                 value={course.average_difficulty}
@@ -193,9 +193,9 @@ function OverallCourseReviews() {
                                         </div>
                                     </div>
                                     {/* Workload */}
-                                    <div className='flex justify-between gap-x-6'>
+                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
                                         <div className='font-semibold w-26'>Workload </div>
-                                        <div className='flex justify-between'>
+                                        <div className='flex justify-between items-center'>
                                             <Rating
                                                 name="text-feedback"
                                                 value={course.average_workload}
@@ -207,9 +207,9 @@ function OverallCourseReviews() {
                                         </div>
                                     </div>
                                     {/* Usefulness */}
-                                    <div className='flex justify-between gap-x-6'>
+                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
                                         <div className='font-semibold w-26'>Usefulness </div>
-                                        <div className='flex '>
+                                        <div className='flex justify-between items-center'>
                                             <Rating
                                                 name="text-feedback"
                                                 value={course.average_usefulness}
@@ -226,32 +226,33 @@ function OverallCourseReviews() {
                     </AccordionItem>
                 </Accordion>
 
-                <div className='flex mb-4 justify-between'>
-                    <div className="text-md mt-6 text-black">Showing {reviewResponseCount} Reviews: </div>
+                <div className='flex mb-4 justify-between items-center mt-6'>
+                    {/* number of reviews only visible on desktop */}
+                    <div className="hidden sm:block text-sm md:text-md text-black">{reviewResponseCount} Reviews</div>
 
-                    <div className='flex justify-end gap-x-4 text-sm mt-5'>
+                    <div className='flex justify-between sm:justify-end gap-x-4 text-sm mx-auto sm:mx-0'>
 
                         {/* Newest Posts */}
-                        <div className='flex gap-x-2 items-center'>
+                        <div className='flex flex-col sm:flex-row gap-y-2 gap-x-2 items-center'>
                             <label className="switch">
                                 <input type="checkbox" checked={sortedByDate} onChange={handleDateSortingToggle} />
                                 <span className="slider round"></span>
                             </label>
-                            <div className='ml-1'>Latest</div>
+                            <div className='text-xs sm:text-sm ml-1'>Latest</div>
                         </div>
 
                         {/* Top Rated */}
-                        <div className='flex gap-x-2 items-center'>
+                        <div className='flex flex-col sm:flex-row gap-y-2 gap-x-2 items-center'>
                             <label className="switch">
                                 <input type="checkbox" checked={sortedByLikes} onChange={handleLikesSortingToggle} />
                                 <span className="slider round"></span>
                             </label>
-                            <div className='m-1 '>Top Rated</div>
+                            <div className='text-xs sm:text-sm ml-1'>Top Rated</div>
                         </div>
 
                         {/* by Professors */}
                         <Select onValueChange={(value) => setSelectedProfessor(value)}>
-                            <SelectTrigger className="w-[180px] ">
+                            <SelectTrigger className="w-[80px] xs:w-[100px] sm:w-[180px] text-m-xs self-center">
                                 <SelectValue placeholder="Professor" />
                             </SelectTrigger>
                             <SelectContent>
@@ -269,7 +270,7 @@ function OverallCourseReviews() {
                         {/* bookmark */}
                         <div className='flex flex-row items-center'>
                             <div onClick={handleBookmarkClick} className=''>
-                                <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="md:h-8 md:w-8 h-4 w-4 cursor-pointer" alt="book-mark" />
+                                <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="h-4 sm:h-6 md:h-8 w-4 sm:w-6 md:w-8  cursor-pointer" alt="book-mark" />
                             </div>
                             <div className='ml-2 align-middle'>
                             </div>
@@ -278,11 +279,11 @@ function OverallCourseReviews() {
                 </div>
 
                 {filteredReviews.map((review, index) => (
-                    <OverarallReviews isEditable={false} data={review} index={index} key={review.id} />
+                    <ReviewDiv isEditable={false} data={review} index={index} key={review.id} />
                 ))}
 
                 <Link className="mx-auto" to={`/review/${encodeURIComponent(courseName)}`}>
-                    <Button className="h-20 w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
+                    <Button className="h-10 w-30 sm:h-20 sm:w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
                 </Link>
             </div>
         </div>

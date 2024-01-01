@@ -69,18 +69,18 @@ function LandingPage() {
       </div>
 
       {/* Filters */}
-      <div className='flex justify-between text-sm 
+      <div className='flex justify-between text-sm items-center
                       w-[70%] md-[60%] lg:w-[50%] xl:w-[40%] m-2 pt-4'>
         {/* number of results */}
         <p className='mt-1'>{displayResults.length} Results</p>
 
         {/* sort by A-Z */}
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-center'>
           <label className="switch">
             <input type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
             <span className="slider round"></span>
           </label>
-          <p className='mt-1 ml-2'>Sort A-Z</p>
+          <p className='text-xs xs:text-sm md:text-base mt-1 ml-2'>Sort A-Z</p>
         </div>
       </div>
 

@@ -8,7 +8,7 @@ import { UserContext } from "../UserContext";
 import { Rating } from '@mui/material';
 import { StarIcon } from 'lucide-react';
 
-function OverarallReviews({ isEditable, data }) {
+function ReviewDiv({ isEditable, data }) {
     const [thumbsUpClicked, setThumbsUpClicked] = useState(false);
     const [thumbsDownClicked, setThumbsDownClicked] = useState(false);
     const [professor, setProfessor] = useState("");
@@ -102,33 +102,29 @@ function OverarallReviews({ isEditable, data }) {
                                 my-6 p-2 md:p-4 items-center justify-between'>
             {
                 isEditable ?
-                    (
-                        <div>
-
-                        </div>
-                    ) :
+                    (<div></div>) :
                     (
                         <div>
                             <div className='flex flex-col'>
                                 {/* prof & date */}
-                                <div className='flex justify-between mx-6 my-2'>
-                                    <div><span className='font-semibold'>Professor: </span>{professor}</div>
-                                    <div>{submissionDate}</div>
+                                <div className='flex justify-between mx-1 sm:mx-6 my-2'>
+                                    <div className='text-sm sm:text-base'><span className='font-semibold'>Professor: </span>{professor}</div>
+                                    <div className='text-sm sm:text-base'>{submissionDate}</div>
                                 </div>
 
                                 {/* main content */}
-                                <div className='flex md:flex-row mx-6 my-2 gap-x-10 justify-between'>
+                                <div className='flex flex-col md:flex-row mx-1 sm:mx-6 my-2 gap-x-10 gpy-y-4 justify-between'>
                                     {/* Review */}
-                                    <div className='md:w-[80%] py-2 px-4 border-2 border-tertiary sm:min-h-[150px]'>
+                                    <div className='w-full md:w-[80%] text-xs sm:text-base py-2 px-4 mb-4 border-2 border-tertiary min-h-[100px] sm:min-h-[150px]'>
                                         {review}
                                     </div>
                                     {/* Ratings & Likes */}
-                                    <div className='flex flex-col justify-around'>
+                                    <div className='flex flex-col justify-around sm:py-4 md:py-0 gap-y-4'>
                                         {/* Ratings */}
                                         <div className='flex flex-col gap-x-6'>
                                             {/* Difficult */}
-                                            <div className='flex justify-between gap-x-6'>
-                                                <div className='font-semibold w-26'>Difficulty </div>
+                                            <div className='flex justify-between gap-x-6 items-center'>
+                                                <div className='font-semibold sm:w-26 text-xs xs:text-sm sm:text-base'>Difficulty </div>
                                                 <Rating
                                                     name="text-feedback"
                                                     value={difficulty}
@@ -138,8 +134,8 @@ function OverarallReviews({ isEditable, data }) {
                                                 />
                                             </div>
                                             {/* Workload */}
-                                            <div className='flex justify-between gap-x-6'>
-                                                <div className='font-semibold w-26'>Workload </div>
+                                            <div className='flex justify-between gap-x-6 items-center'>
+                                                <div className='font-semibold sm:w-26 text-xs xs:text-sm sm:text-base'>Workload </div>
                                                 <Rating
                                                     name="text-feedback"
                                                     value={workload}
@@ -149,8 +145,8 @@ function OverarallReviews({ isEditable, data }) {
                                                 />
                                             </div>
                                             {/* Usefulness */}
-                                            <div className='flex justify-between'>
-                                                <div className='font-semibold w-26'>Usefulness </div>
+                                            <div className='flex justify-between gap-x-6 items-center'>
+                                                <div className='font-semibold sm:w-26 text-xs xs:text-sm sm:text-base'>Usefulness </div>
                                                 <Rating
                                                     name="text-feedback"
                                                     value={usefulness}
@@ -161,7 +157,7 @@ function OverarallReviews({ isEditable, data }) {
                                             </div>
                                         </div>
                                         {/* Like Dislike */}
-                                        <div className='flex flex-row md:flex-col items-center'>
+                                        <div className='flex flex-row md:flex-col items-center mx-auto'>
                                             <div className='font-semibold flex'>
                                                 <div onClick={handleThumbsUpClick}>
                                                     <img src={thumbsUpClicked ? thumbsUpGreen : thumbsUpBlank} className="h-6 w-6 cursor-pointer" alt="thumbs-up" />
@@ -183,6 +179,6 @@ function OverarallReviews({ isEditable, data }) {
     );
 }
 
-export default OverarallReviews;
+export default ReviewDiv;
 
 

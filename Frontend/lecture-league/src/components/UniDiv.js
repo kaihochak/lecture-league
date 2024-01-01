@@ -18,8 +18,8 @@ export default function Uni_div({ data }) {
           </div>
           {/* Uni Info */}
           <div className='w-[80%] md:w-3/4 px-2 md:pl-7'>
-            <span className="block text-lg md:text-2xl font-normal text-left">{data.name}</span>
-            <span className="block text-xs md:text-sm text-gray-500 font-normal">{data.reviewNum} reviews</span>
+            <span className="block text-sm xs:text-lg md:text-2xl font-normal text-left">{data.name}</span>
+            <span className="block text-xs xs:text-xs md:text-sm text-gray-500 font-normal">{data.reviewNum} reviews</span>
           </div>
         </div>
       </Link>
