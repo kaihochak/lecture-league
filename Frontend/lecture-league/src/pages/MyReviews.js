@@ -138,14 +138,14 @@ const MyReviews = () => {
                     <TabsContent value="Saved">
                         <div className="w-full">
                             {coursesData.map((course) => (
-                                <div key={course.name} className="course my-2">
+                                <div key={course.name} className="my-2">
                                     <div className="flex justify-center">
                                         {course.mockData && (
                                             <Coursediv data={course.mockData} />
                                         )}
                                         <img
                                             src={coursesToRemove.includes(course.name) ? bookMarkBlank : bookMark}
-                                            className="w-6 h-6 m-4 place-self-center"
+                                            className="w-4 h-4 sm:w-6 sm:h-6 sm:m-4 place-self-center"
                                             alt="bookmark"
                                             onClick={() => handleBookmarkClick(course.name)}
                                         />

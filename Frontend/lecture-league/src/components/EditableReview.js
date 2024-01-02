@@ -142,21 +142,22 @@ function EditableReview({ data, id, onDelete }) {
     <div className='font-Montserrat flex flex-col md:flex-row w-full place-content-center'>
 
       {/* Form */}
-      <div className=' shadow-lg rounded-sm bg-primary w-[75%]
-                                my-6 p-2 md:p-4 items-center justify-between'>
+      <div className='shadow-lg rounded-sm bg-primary w-[85%] md:w-[75%] mx-auto md:mx-0
+                                my-2 md:my-6 p-2 lg:p-4 items-center justify-between'>
 
         <div className='flex flex-col gap-y-2 w-full'>
           {/* info */}
-          <div className='flex justify-between mx-6 my-2'>
-            <div className='flex justify-start gap-x-6'>
+          <div className='flex justify-between mx-2 my-1 lg:mx-6 md:my-2'>
+            <div className='flex justify-start gap-x-2 lg:gap-x-6 text-xs sm:text-sm lg:text-base'>
               {/* professor */}
               {editable ?
-                (<Input value={professor} className="w-48" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />) :
-                (<div><span className='font-semibold'>Professor: </span>{professor}</div>)
+                (<Input value={professor} className="w-24 sm:w-30 md:w-48" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />) :
+                (<div><span className='font-semibold text-xs sm:text-sm lg:text-base'>Professor: </span>{professor}</div>)
               }
-              {/* university */}
               <Separator orientation="vertical" />
+              {/* university */}
               <Link
+                className='flex items-center'
                 to={`/UniversityPage/${encodeURIComponent(university)}`}
               >
                 <div className='font-normal hover:underline'>{university}</div>
@@ -164,22 +165,23 @@ function EditableReview({ data, id, onDelete }) {
               {/* course */}
               <Separator orientation="vertical" />
               <Link
+                className='flex items-center'
                 to={`/overallCourseReview/${encodeURIComponent(course)}`}
               >
                 <div className='font-normal hover:underline'>{course}</div>
               </Link>
 
             </div>
-            <div>{submissionDate}</div>
+            <div className='text-xs sm:text-sm lg:text-base flex self-center'>{submissionDate}</div>
           </div>
           {/* Main Content */}
           {editable ?
             (
-              <div className='flex flex-col mx-6 my-2 justify-between'>
-                <div className='flex gap-x-10'>
+              <div className='flex flex-col mx-2 lg:mx-6 my-2 justify-between '>
+                <div className='flex flex-col md:flex-row gap-x-4 gap-y-2 lg:gap-x-10 '>
                   <Textarea
                     placeholder="What do you want others to know about this class?"
-                    className="md:w-[80%] sm:min-h-[140px] resize-none"
+                    className="md:w-[80%] sm:min-h-[140px] resize-none "
                     value={comments}
                     // {...field}
                     onChange={(e) => setComments(e.target.value)}
@@ -189,7 +191,7 @@ function EditableReview({ data, id, onDelete }) {
                     <div className='flex flex-col gap-x-6'>
                       {/* Difficult */}
                       <div className='flex justify-between gap-x-6'>
-                        <div className='font-semibold w-26'>Difficulty </div>
+                        <div className='font-semibold w-26 text-xs sm:text-sm lg:text-base'>Difficulty </div>
                         <Rating
                           name="text-feedback"
                           value={difficulty}
@@ -202,7 +204,7 @@ function EditableReview({ data, id, onDelete }) {
                       </div>
                       {/* Workload */}
                       <div className='flex justify-between gap-x-6'>
-                        <div className='font-semibold w-26'>Workload </div>
+                        <div className='font-semibold w-26 text-xs sm:text-sm lg:text-base'>Workload </div>
                         <Rating
                           name="text-feedback"
                           value={workload}
@@ -215,7 +217,7 @@ function EditableReview({ data, id, onDelete }) {
                       </div>
                       {/* Usefulness */}
                       <div className='flex justify-between'>
-                        <div className='font-semibold w-26'>Usefulness </div>
+                        <div className='font-semibold w-26 text-xs sm:text-sm lg:text-base'>Usefulness </div>
                         <Rating
                           name="text-feedback"
                           value={usefulness}
@@ -229,21 +231,21 @@ function EditableReview({ data, id, onDelete }) {
                     </div>
                     {/* Like Dislike */}
                     <div className='flex flex-row md:flex-col items-center'>
-                      <div className='flex gap-x-4 font-semibold'>
+                      <div className='flex gap-x-4 font-semibold mx-auto'>
                         <div className='flex flex-col items-center'>
-                          <img src={thumbsUpBlank} className="h-6 w-6 my-2" alt="thumbs-up" />
-                          <span className="text-md text-black">{likedCount}</span>
+                          <img src={thumbsUpBlank} className="h-4 w-4 lg:h-6 lg:w-6 my-2" alt="thumbs-up" />
+                          <span className="text-xs md:text-sm lg:text-base text-black">{likedCount}</span>
                         </div>
                         <div className='flex flex-col items-center'>
-                          <img src={thumbsDownBlank} className="h-6 w-6 my-2" alt="thumbs-down" />
-                          <span className="text-md text-black">{dislikedCount}</span>
+                          <img src={thumbsDownBlank} className="h-4 w-4 lg:h-6 lg:w-6 my-2" alt="thumbs-down" />
+                          <span className="text-xs md:text-sm lg:text-base text-black">{dislikedCount}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 {/* error messages */}
-                <div className='flex flex-col items-center md:items-start py-2 mx-6'>
+                <div className='flex flex-col items-center md:items-start mx-6'>
                   {errorMessages.university && <div className="text-red-500">{errorMessages.university}</div>}
                   {errorMessages.courseCode && <div className="text-red-500">{errorMessages.courseCode}</div>}
                   {errorMessages.comments && <div className="text-red-500">{errorMessages.comments}</div>}
@@ -255,9 +257,9 @@ function EditableReview({ data, id, onDelete }) {
               </div>
             ) :
             (
-              <div className='flex md:flex-row mx-6 my-2 gap-x-10 justify-between'>
+              <div className='flex flex-col md:flex-row mx-2 lg:mx-6 lg:my-2 gap-y-2 gap-x-2 md:gap-x-4 lg:gap-x-10 justify-between'>
                 {/* Review */}
-                <div className='md:w-[80%] py-2 px-4 border-2 border-tertiary sm:min-h-[150px]'>
+                <div className='md:w-[80%] py-2 px-4 border-2 border-tertiary min-h-[100px] sm:min-h-[150px]'>
                   {comments}
                 </div>
                 {/* Ratings & Likes */}
@@ -266,7 +268,7 @@ function EditableReview({ data, id, onDelete }) {
                   <div className='flex flex-col gap-x-6'>
                     {/* Difficult */}
                     <div className='flex justify-between gap-x-6'>
-                      <div className='font-semibold w-26'>Difficulty </div>
+                      <div className='font-semibold w-26 text-xs sm:text-sm lg:text-base'>Difficulty </div>
                       <Rating
                         name="text-feedback"
                         value={difficulty}
@@ -277,7 +279,7 @@ function EditableReview({ data, id, onDelete }) {
                     </div>
                     {/* Workload */}
                     <div className='flex justify-between gap-x-6'>
-                      <div className='font-semibold w-26'>Workload </div>
+                      <div className='font-semibold w-26 text-xs sm:text-sm lg:text-base'>Workload </div>
                       <Rating
                         name="text-feedback"
                         value={workload}
@@ -288,7 +290,7 @@ function EditableReview({ data, id, onDelete }) {
                     </div>
                     {/* Usefulness */}
                     <div className='flex justify-between'>
-                      <div className='font-semibold w-26'>Usefulness </div>
+                      <div className='font-semibold w-26 text-xs sm:text-sm lg:text-base'>Usefulness </div>
                       <Rating
                         name="text-feedback"
                         value={usefulness}
@@ -299,15 +301,15 @@ function EditableReview({ data, id, onDelete }) {
                     </div>
                   </div>
                   {/* Like Dislike */}
-                  <div className='flex flex-row md:flex-col items-center'>
+                  <div className='flex flex-row md:flex-col items-center mx-auto'>
                     <div className='flex gap-x-4 font-semibold'>
                       <div className='flex flex-col items-center'>
-                        <img src={thumbsUpBlank} className="h-6 w-6 my-2" alt="thumbs-up" />
-                        <span className="text-md text-black">{likedCount}</span>
+                          <img src={thumbsUpBlank} className="h-4 w-4 lg:h-6 lg:w-6 my-2" alt="thumbs-up" />
+                          <span className="text-xs md:text-sm lg:text-base text-black">{likedCount}</span>
                       </div>
                       <div className='flex flex-col items-center'>
-                        <img src={thumbsDownBlank} className="h-6 w-6 my-2" alt="thumbs-down" />
-                        <span className="text-md text-black">{dislikedCount}</span>
+                        <img src={thumbsDownBlank} className="h-4 w-4 lg:h-6 lg:w-6 my-2" alt="thumbs-down" />
+                        <span className="text-xs md:text-sm lg:text-base text-black">{dislikedCount}</span>
                       </div>
                     </div>
                   </div>
@@ -319,22 +321,22 @@ function EditableReview({ data, id, onDelete }) {
       </div>
 
       {/* Edit & Delete Buttons */}
-      <div className="flex flex-row md:flex-col justify-evenly mt-4 md:mt-0 md:ml-4  md:mr-0">
+      <div className="flex flex-row md:flex-col justify-end gap-x-4 md:justify-around md:mx-auto mb-4 mt-2 mr-10 sm:mr-14 md:mt-0 md:ml-4 md:mr-0">
         {editable ? (
           <>
-            <div className="cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleSaveChanges}>
+            <div className="cursor-pointer text-lg md:text-2xl lg:text-4xl" onClick={handleSaveChanges}>
               <CiCircleCheck className='text-[#006400]' />
             </div>
-            <div className="cursor-pointer text-4xl md:text-2xl lg:text-4xl" onClick={handleDiscardChanges}>
+            <div className="cursor-pointer text-lg md:text-2xl lg:text-4xl" onClick={handleDiscardChanges}>
               <CiCircleRemove className='text-[#8b0000]' />
             </div>
           </>
         ) : (
           <>
-            <div className="cursor-pointer text-2xl md:text-2xl lg:text-4xl" onClick={handleEditClick}>
+            <div className="cursor-pointer text-lg md:text-2xl lg:text-4xl" onClick={handleEditClick}>
               <CiEdit className='text-accent' />
             </div>
-            <div className="cursor-pointer text-2xl md:text-2xl lg:text-4xl" onClick={handleDeleteClick}>
+            <div className="cursor-pointer text-lg md:text-2xl lg:text-4xl" onClick={handleDeleteClick}>
               <CiTrash className='text-accent' />
             </div>
           </>
