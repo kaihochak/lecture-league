@@ -141,14 +141,14 @@ function UniversityPage() {
       <Header />
 
       {/* Banner */}
-      <div className='bg-banner-uni bg-cover flex flex-col items-center justify-center 
-                      h-60 sm:h-80 md:h-96 lg:h-[1/2] w-full p-4 md:p-72 gap-y-2 md:gap-y-6'>
+      <div className='bg-banner-uni bg-cover flex flex-col items-center justify-center
+                      h-60 sm:h-80 md:h-96 lg:h-[1/2] w-full p-4 md:p-72 sm:gap-y-2 md:gap-y-6'>
         {/* Uni Info*/}
         <div className="flex flex-col items-center my-2">
-          <div className="w-1/2 md:w-1/3 max-w-xs relative m-6">
+          <div className="relative w-1/5 lg:w-1/3 max-w-xs m-6">
             <img src={universityData.image} alt="University-Search-Logo" />
           </div>
-          <h1 className="text-4xl text-primary">{universityName}</h1>
+          <h1 className="sm:text-xl lg:text-4xl text-primary">{universityName}</h1>
         </div>
         {/* Search Component */}
         <SearchComponent
@@ -159,10 +159,10 @@ function UniversityPage() {
       </div>
 
       {/* Search Filter */}
-      <div className="flex gap-x-4 mx-auto my-4">
+      <div className="flex flex-col xs:flex-row  w-[80%] gap-x-4 gap-y-2 mx-auto my-4 items-center">
         {/* Course Code */}
         <Select onValueChange={(value) => setCourseCode(value)} >
-          <SelectTrigger className="w-[280px]">
+          <SelectTrigger className="w-[150px] sm:w-[280px] text-xs md:text-md">
             <SelectValue placeholder="Course Code" />
           </SelectTrigger>
           <SelectContent>
@@ -179,7 +179,8 @@ function UniversityPage() {
         </Select>
         {/* Course Number */}
         <Select onValueChange={(value) => setCourseNumber(value)} >
-          <SelectTrigger className="w-[280px]">
+          <SelectTrigger className="w-[150px] sm:w-[280px] text-xs md:text-md">
+
             <SelectValue placeholder="Course Number" />
           </SelectTrigger>
           <SelectContent>
@@ -196,7 +197,8 @@ function UniversityPage() {
         </Select>
         {/* Ratings */}
         <Select onValueChange={(value) => setFilter(value)} >
-          <SelectTrigger className="w-[280px]">
+          <SelectTrigger className="w-[150px] sm:w-[280px] text-xs md:text-md">
+
             <SelectValue placeholder="Ratings" />
           </SelectTrigger>
           <SelectContent>

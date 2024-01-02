@@ -84,6 +84,11 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontSize: {
+        'm-xs': ['0.625rem', {
+          // lineHeight: '1rem',
+          letterSpacing: '-0.01em',
+          fontWeight: '300',
+        }],
         'm-s': ['0.75rem', {
           // lineHeight: '1rem',
           letterSpacing: '-0.01em',

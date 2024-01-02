@@ -13,23 +13,24 @@ export default function Course_div({ data }) {
                 <div key={data.id} className='font-Montserrat border-1 shadow-lg border-tertiary rounded-sm bg-primary
                                                 p-2 md:p-4 flex items-center justify-around
                                                 hover:scale-105 transition duration-300 ease-in-out'>
+                    {/* course code */}
                     <div className='w-[60%] relative'>
-                        <h2 className="text-xl lg:text-2xl font-semibold">{data.name}</h2>
-                        <h2 className="text-l lg:text-xl">{data.title}</h2>
+                        <h2 className="text-sm md:text-xl lg:text-2xl font-semibold">{data.name}</h2>
+                        <h2 className="text-xs md:text-lg lg:text-xl">{data.title}</h2>
                     </div>
                     {/* ratings */}
-                    <div className='w-[40%] md:w-1/4 px-2 text-l lg:text-xl whitespace-nowrap'>
+                    <div className='w-[50%] xs:w-[40%] sm:w-[40%] md:w-[30%] px-2 text-l lg:text-xl whitespace-nowrap'>
                         <div className="flex justify-between">
-                            <div className='font-semibold'>Difficulty:</div>
-                            <div>{data.average_difficulty}</div> 
+                            <div className='text-xs sm:text-sm lg:text-xl font-semibold'>Difficulty</div>
+                            <div className='text-xs sm:text-sm lg:text-xl'>{data.average_difficulty}</div> 
                         </div>
                         <div className="flex justify-between">
-                            <div className='font-semibold'>Workload:</div>
-                            <div>{data.average_workload}</div> 
+                            <div className='text-xs sm:text-sm lg:text-xl font-semibold'>Workload</div>
+                            <div className='text-xs sm:text-sm lg:text-xl'>{data.average_workload}</div> 
                         </div>
                         <div className="flex justify-between">
-                            <div className='font-semibold'>Usefulness:</div>
-                            <div>{data.average_usefulness}</div> 
+                            <div className='text-xs sm:text-sm lg:text-xl font-semibold'>Usefulness</div>
+                            <div className='text-xs sm:text-sm lg:text-xl'>{data.average_usefulness}</div> 
                         </div>
                     </div>
                 </div>

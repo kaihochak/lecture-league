@@ -18,6 +18,7 @@ const SearchComponent = ({ data, onSearchResults, placeholder }) => {
         <div className="flex flex-row items-center justify-center my-4 
                         w-[70%] md:w-[60%] lg:w-[50%] xl:w-[40%]">
             <Input
+                className="mb-2"
                 id="search"
                 type="text"
                 value={searchInput}

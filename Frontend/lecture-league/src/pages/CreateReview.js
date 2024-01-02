@@ -143,87 +143,88 @@ function CreateReview() {
 
         {/* course info */}
         <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              <div className='flex items-center'>
-                <div className="w-12 md:w-12 m-2">
-                  {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
-                </div>
-                <div className='flex flex-col ml-4 text-left'>
-                  <div className="text-2xl ">{course.name}</div>
-                  <div >{course.title}</div>
-                </div>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
-                {/* Course Description */}
-                <div className='md:w-[70%]'>
-                  <div className="text-md ftext-left">{course.description}</div>
-                </div>
-                {/* ratings */}
-                <div className='md:auto md:ml-8 md:mt-0 mt-6 text-md mr-10'>
-                  {/* Difficult */}
-                  <div className='flex justify-between gap-x-6'>
-                    <div className='font-semibold w-26'>Difficulty </div>
-                    <div className='flex justify-between'>
-                      <Rating
-                        name="text-feedback"
-                        value={course.average_difficulty}
-                        readOnly
-                        precision={1}
-                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                      />
-                      <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
+            <AccordionItem value="item-1">
+                <AccordionTrigger>
+                    <div className='flex items-center'>
+                        <div className="w-12 md:w-12 m-2">
+                            {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
+                        </div>
+                        <div className='flex flex-col ml-4 text-left'>
+                            <div className="text-base sm:text-2xl">{course.name}</div>
+                            <div className="text-xs xs:text-sm sm:text-xl">{course.title}</div>
+                        </div>
                     </div>
-                  </div>
-                  {/* Workload */}
-                  <div className='flex justify-between gap-x-6'>
-                    <div className='font-semibold w-26'>Workload </div>
-                    <div className='flex justify-between'>
-                      <Rating
-                        name="text-feedback"
-                        value={course.average_workload}
-                        readOnly
-                        precision={1}
-                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                      />
-                      <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
+                </AccordionTrigger>
+                <AccordionContent>
+                    <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
+                        {/* Course Description */}
+                        <div className='md:w-[70%]'>
+                            <div className="text-md ftext-left">{course.description}</div>
+                        </div>
+                        {/* ratings */}
+                        <div className='text-xs sm:text-sm mt-6 md:mt-0 md:mr-10'>
+                            {/* Difficult */}
+                            <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                                <div className='font-semibold w-26'>Difficulty </div>
+                                <div className='flex justify-between items-center'>
+                                    <Rating
+                                        name="text-feedback"
+                                        value={course.average_difficulty}
+                                        readOnly
+                                        precision={0.1}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
+                                </div>
+                            </div>
+                            {/* Workload */}
+                            <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                                <div className='font-semibold w-26'>Workload </div>
+                                <div className='flex justify-between items-center'>
+                                    <Rating
+                                        name="text-feedback"
+                                        value={course.average_workload}
+                                        readOnly
+                                        precision={0.1}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
+                                </div>
+                            </div>
+                            {/* Usefulness */}
+                            <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                                <div className='font-semibold w-26'>Usefulness </div>
+                                <div className='flex justify-between items-center'>
+                                    <Rating
+                                        name="text-feedback"
+                                        value={course.average_usefulness}
+                                        readOnly
+                                        precision={0.1}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  {/* Usefulness */}
-                  <div className='flex justify-between gap-x-6'>
-                    <div className='font-semibold w-26'>Usefulness </div>
-                    <div className='flex '>
-                      <Rating
-                        name="text-feedback"
-                        value={course.average_usefulness}
-                        readOnly
-                        precision={1}
-                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                      />
-                      <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
+                </AccordionContent>
+            </AccordionItem>
         </Accordion>
+
 
 
         {/* Form */}
         <div className='font-Montserrat shadow-lg rounded-sm bg-primary
                                 my-6 p-2 md:p-4 items-center justify-between'>
-          <div className='flex md:flex-row mx-6 my-2 gap-x-8 justify-between'>
+          <div className='flex flex-col sm:flex-row sm:mx-6 sm:my-2 m-4 gap-y-4 gap-x-8 justify-between'>
             {/* prof & review*/}
-            <div className='flex flex-col gap-y-2 md:w-[80%]  '>
+            <div className='flex flex-col gap-y-2 sm:w-[70%] md:w-[80%]'>
               {/* prof */}
-              <Input value={professor} className="border-2" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />
+              <Input value={professor} className="text-xs sm:text-sm border-2" type="email" placeholder="Professor name" onChange={(e) => setProfessor(e.target.value)} />
               {/* Review */}
               <Textarea
                 placeholder="What do you want others to know about this class?"
-                className="sm:min-h-[150px] resize-none"
+                className="text-xs sm:text-sm sm:min-h-[150px] resize-none"
                 value={comments}
                 // {...field}
                 onChange={(e) => setComments(e.target.value)}
@@ -232,8 +233,8 @@ function CreateReview() {
             {/* Ratings */}
             <div className='flex flex-col  gap-x-6'>
               {/* Difficult */}
-              <div className='flex justify-between gap-x-6'>
-                <div className='font-semibold w-26'>Difficulty </div>
+              <div className='flex justify-between gap-x-2 xs:gap-x-6 items-center'>
+                <div className='font-semibold w-26 text-xs sm:text-sm'>Difficulty </div>
                 <Rating
                   name="text-feedback"
                   value={difficulty}
@@ -245,8 +246,8 @@ function CreateReview() {
                 />
               </div>
               {/* Workload */}
-              <div className='flex justify-between gap-x-6'>
-                <div className='font-semibold w-26'>Workload </div>
+              <div className='flex justify-between gap-x-2 xs:gap-x-6 items-center'>
+                <div className='font-semibold w-26 text-xs sm:text-sm'>Workload </div>
                 <Rating
                   name="text-feedback"
                   value={workload}
@@ -258,8 +259,8 @@ function CreateReview() {
                 />
               </div>
               {/* Usefulness */}
-              <div className='flex justify-between'>
-                <div className='font-semibold w-26'>Usefulness </div>
+              <div className='flex justify-between gap-x-2 xs:gap-x-6 items-center'>
+                <div className='font-semibold w-26 text-xs sm:text-sm'>Usefulness </div>
                 <Rating
                   name="text-feedback"
                   value={usefulness}
@@ -273,7 +274,7 @@ function CreateReview() {
             </div>
           </div>
           {/* error messages */}
-          <div className='flex flex-col items-center md:items-start py-2 mx-6'>
+          <div className='flex flex-col items-center md:items-start mx-6'>
             {errorMessages.university && <div className="text-red-500">{errorMessages.university}</div>}
             {errorMessages.courseCode && <div className="text-red-500">{errorMessages.courseCode}</div>}
             {errorMessages.comments && <div className="text-red-500">{errorMessages.comments}</div>}

@@ -56,7 +56,7 @@ const Profile = () => {
 
                 {/* Tabs */}
                 <Tabs defaultValue="Reviews">
-                    <TabsList className="grid w-[80%] mx-auto mt-10 grid-cols-2">
+                    <TabsList className="grid w-[80%] sm:w-[60%] mx-auto mt-10 grid-cols-2">
                         <TabsTrigger value="Reviews">Account</TabsTrigger>
                         <TabsTrigger value="Saved">Change Password</TabsTrigger>
                     </TabsList>
@@ -200,7 +200,7 @@ const AccountSettingsAccount = ({ userData, setUserData }) => {
     }
 
     return (
-        <div className="flex flex-col w-[50%] mx-auto p-12 gap-y-6" id="textFieldContainer--accountSettingsAccount">
+        <div className="flex flex-col sm:w-[70%] md:w-[65%] mx-auto p-12 gap-y-6" id="textFieldContainer--accountSettingsAccount">
 
             <AccountInformation
                 editable={false}
@@ -248,14 +248,14 @@ const AccountInformation = ({ editable, label, value, editMode, onEditClick, onS
     <div className="flex items-center justify-center">
 
         {label && (
-            <label className="w-[15%] self-center whitespace-nowrap overflow-hidden text-ellipsis flex-shrink-0 mr-2">
+            <label className="text-xs sm:text-base md:w-[15%] self-center whitespace-nowrap overflow-hidden text-ellipsis flex-shrink-0 mr-2">
                 {label}
             </label>
         )}
 
         {editMode ? (
             <Input
-                className="w-[55%]"
+                className="md:w-[55%]"
                 type={fieldType}
                 value={value}
                 readOnly={!editMode}
@@ -263,7 +263,7 @@ const AccountInformation = ({ editable, label, value, editMode, onEditClick, onS
             />
 
         ) : <Input disabled
-            className="w-[55%]"
+            className="md:w-[55%]"
             type={fieldType}
             value={value}
             readOnly={!editMode}
@@ -348,17 +348,17 @@ const AccountSettingsPassword = () => {
 
 
     return (
-        <div className="flex flex-col w-[50%] mx-auto p-10 gap-y-4" >
+        <div className="flex flex-col w-full sm:w-[70%] md:w-[50%] mx-auto p-10 gap-y-2" >
 
             {/* current */}
             <div className="flex gap-x-4 items-center">
-                <label className="w-[35%]">Enter Current Password</label>
+                <label className="text-xs xs:text-sm md:text-base w-[35%]">Enter Current Password</label>
                 <Input
                     type="password"
                     value={oldPassword}
                     placeholder="Enter Current Password"
                     onChange={(ev) => setOldPassword(ev.target.value)}
-                    className={"inputBox"}
+                    className="text-sm md:text-base"
                     id="currentPassword"
                 />
             </div>
@@ -366,13 +366,13 @@ const AccountSettingsPassword = () => {
 
             {/* new */}
             <div className="flex gap-x-4  items-center">
-                <label className="w-[35%]">Enter New Password</label>
+                <label className="text-xs xs:text-sm md:text-base w-[35%]">Enter New Password</label>
                 <Input
                     type="password"
                     value={newPassword}
                     placeholder="Enter New Password"
                     onChange={(ev) => setConfirmPassword(ev.target.value)}
-                    className={"inputBox"}
+                    className="text-sm md:text-base"
                     id="newPassword"
                 />
             </div>
@@ -380,13 +380,13 @@ const AccountSettingsPassword = () => {
 
             {/* confirm new */}
             <div className="flex gap-x-4 items-center">
-                <label className="w-[35%]">Confirm New Password</label>
+                <label className="text-xs xs:text-sm md:text-base w-[35%]">Confirm New Password</label>
                 <Input
                     type="password"
                     value={confirmNewPassword}
                     placeholder="Re-type New Password"
                     onChange={(ev) => setConfirmNewPassword(ev.target.value)}
-                    className={"inputBox"}
+                    className="text-sm md:text-base"
                     id="retypeNewPassword"
                 />
             </div>
