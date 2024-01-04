@@ -7,6 +7,13 @@ FROM python:3.8.5
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# Create a directory for log files
+RUN mkdir -p /logs
+
+# Give the appropriate permissions
+# This is important because the Docker container might not run as the root user
+RUN chmod 755 /logs
+
 # Set the working directory in the container to /app
 WORKDIR /app
 
@@ -29,3 +36,4 @@ EXPOSE 8000
 # Define the command to run the app using Gunicorn (adjust the number of workers as necessary)
 # Make sure to replace 'your_project.wsgi:application' with the correct application reference
 CMD ["gunicorn", "--workers=3", "--bind", "0.0.0.0:8000", "rateMyCourse.wsgi:application"]
+
