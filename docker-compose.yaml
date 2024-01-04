@@ -4,12 +4,21 @@ services:
   backend:
     restart: always
     container_name: backend
-    command: bash -c "python rateMyCourse/manage.py runserver 0.0.0.0:8000"
     build:
       context: ./Backend
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
+    env_file:
+      - .env  # This line tells docker-compose to use variables from .env file
+    environment:
+      - DJANGO_SECRET_KEY
+      - DJANGO_DEBUG
+      - DJANGO_ALLOWED_HOSTS
+      - CORS_ORIGIN_WHITELIST
 
   frontend:
     restart: always
@@ -22,3 +31,7 @@ services:
       - "80:3000"
     depends_on:
       - backend
+
+volumes:
+  static_volume:  # This persists your Django static files
+  media_volume:   # This persists your Django media files

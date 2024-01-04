@@ -17,7 +17,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of your application's code
-COPY . .
+COPY rateMyCourse/ .
 
 # Collect static files
 # NOTE: Customize this command based on your static files settings in Django (if applicable)

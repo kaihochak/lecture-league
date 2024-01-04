@@ -12,23 +12,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b&u-2lage1hr(#ld(9cft0n4)-yckmj1=jw$#_(fcgm!hhn6r%'
+# SECRET_KEY = 'django-insecure-b&u-2lage1hr(#ld(9cft0n4)-yckmj1=jw$#_(fcgm!hhn6r%'
+load_dotenv()  # Load environment variables from a .env file if present
 
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-b&u-2lage1hr(#ld(9cft0n4)-yckmj1=jw$#_(fcgm!hhn6r%')  
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = [
-
-]
-
+# DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')  # Set your production domain here
 
 # Application definition
 
@@ -62,8 +61,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-# Must delete this line before deploying to production
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = os.getenv('CORS_ORIGIN_WHITELIST', 'http://localhost,https://yourfrontenddomain.com').split(',')
 
 ROOT_URLCONF = 'rateMyCourse.urls'
 
@@ -138,16 +137,37 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/images/'  # URL prefix for serving media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')  # Absolute filesystem path to the directory that will hold the media files
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': '/logs/error.log',  # Use the directory you created in the Dockerfile
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
