@@ -29,6 +29,13 @@ services:
       dockerfile: Dockerfile
     stdin_open: true
     ports:
-      - "80:3000"
+      - "3000:80"
     depends_on:
       - backend
+    volumes:
+      - ./Frontend/lecture-league:/app  # Mount the local React app to the container's app directory
+
+volumes:
+  static_volume:  
+  media_volume:   
+  logs:           

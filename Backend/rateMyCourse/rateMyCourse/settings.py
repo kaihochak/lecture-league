@@ -25,8 +25,8 @@ load_dotenv()  # Load environment variables from a .env file if present
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-b&u-2lage1hr(#ld(9cft0n4)-yckmj1=jw$#_(fcgm!hhn6r%')  
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
+DEBUG = True
+# DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')  # Set your production domain here
 
 # Application definition
@@ -43,12 +43,14 @@ INSTALLED_APPS = [
     'api',
     'corsheaders',
 ]
+
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
 }
+
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': [
 #         'rest_framework.permissions.IsAuthenticated',

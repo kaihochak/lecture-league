@@ -1,20 +1,15 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14
+# Frontend/lecture-league/Dockerfile
 
-# Set the working directory in the Docker container
-WORKDIR /app/frontend/
-
-# Copy package.json and package-lock.json to the working directory
+# Stage 1: Building the app
+FROM node:14 AS build
+WORKDIR /app
 COPY package.json package-lock.json ./
-
-# Install any needed packages specified in package.json
 RUN npm install
+COPY . .
+RUN npm run build
 
-# Copy the rest of the application's code to the working directory
-COPY . ./
-
-# Make port 3000 available to the world outside this container
-EXPOSE 3000
-
-# Define the command to run the app using npm
-CMD ["npm", "start"]
+# Stage 2: Serve the app using a static server
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
