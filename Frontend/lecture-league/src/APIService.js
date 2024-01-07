@@ -4,7 +4,7 @@ export default class APIService {
     static LoginUser(body){
 
         console.log(body);
-        return fetch(`http://127.0.0.1:8000/auth/`, {
+        return fetch(`http://localhost:8000/auth/`, {
             'method': 'POST',
             headers: {
               'Content-Type':'application/json',
@@ -15,7 +15,7 @@ export default class APIService {
     static RegisterUser(body) {
         console.log(body);
     
-        return fetch(`http://127.0.0.1:8000/api/users/`, {
+        return fetch(`http://localhost:8000/api/users/`, {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',

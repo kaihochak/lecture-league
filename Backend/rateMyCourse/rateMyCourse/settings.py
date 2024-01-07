@@ -25,8 +25,8 @@ load_dotenv()  # Load environment variables from a .env file if present
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-b&u-2lage1hr(#ld(9cft0n4)-yckmj1=jw$#_(fcgm!hhn6r%')  
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
+# DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')  # Set your production domain here
 
 # Application definition
@@ -69,7 +69,7 @@ MIDDLEWARE = [
 ]
 
 # CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = os.getenv('CORS_ORIGIN_WHITELIST', 'http://localhost,https://yourfrontenddomain.com').split(',')
+CORS_ORIGIN_WHITELIST = os.getenv('CORS_ORIGIN_WHITELIST', 'http://localhost:3000').split(',')
 
 ROOT_URLCONF = 'rateMyCourse.urls'
 
