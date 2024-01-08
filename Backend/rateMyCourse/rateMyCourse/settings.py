@@ -25,8 +25,8 @@ load_dotenv()  # Load environment variables from a .env file if present
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-b&u-2lage1hr(#ld(9cft0n4)-yckmj1=jw$#_(fcgm!hhn6r%')  
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
+# DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')  # Set your production domain here
 
 # Application definition
@@ -154,8 +154,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # Absolute filesystem path to the directory that will hold the media files
 MEDIA_URL = '/media/'  # URL prefix for serving media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # Absolute filesystem path to the directory that will hold the media files
 
 LOGGING = {
     'version': 1,
