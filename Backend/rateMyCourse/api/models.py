@@ -6,7 +6,7 @@ from django.db.models import Avg
 class University(models.Model):
     name = models.CharField(max_length=50, primary_key=True)
     reviews = models.IntegerField(null=True, blank=True)
-    image = models.ImageField(upload_to='images/', default='')
+    image = models.ImageField(upload_to='images/')
 
     def review_count(self):
         return Review.objects.filter(university=self).count()

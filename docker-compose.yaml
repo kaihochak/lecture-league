@@ -4,12 +4,22 @@ services:
   backend:
     restart: always
     container_name: backend
-    command: bash -c "python rateMyCourse/manage.py runserver 0.0.0.0:8000"
     build:
       context: ./Backend
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+      - logs:/app/logs
+    env_file:
+      - .env  # This line tells docker-compose to use variables from .env file
+    environment:
+      - DJANGO_SECRET_KEY
+      - DJANGO_DEBUG
+      - DJANGO_ALLOWED_HOSTS
+      - CORS_ORIGIN_WHITELIST
 
   frontend:
     restart: always
@@ -19,6 +29,28 @@ services:
       dockerfile: Dockerfile
     stdin_open: true
     ports:
-      - "80:3000"
+      - "3000:80"
     depends_on:
       - backend
+    volumes:
+      - ./Frontend/lecture-league:/app  # Mount the local React app to the container's app directory
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"  # Expose Nginx on port 80 of the host machine
+    volumes:
+      - static_volume:/usr/share/nginx/html/staticfiles   # Mount the static files to Nginx
+      - media_volume:/usr/share/nginx/html/media  # Mount the media files to Nginx
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro  # Mount the custom nginx.conf to the container
+    depends_on:
+      - backend
+    environment:
+      - NGINX_HOST=nginx
+      - NGINX_PORT=80
+
+volumes:
+  static_volume:
+  media_volume:
+  logs:

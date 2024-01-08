@@ -12,7 +12,7 @@ router.register('users', UserViewSet)
 router.register('Review', ReviewViewSet, basename='Review')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
 
 # To display images in the browser during development
