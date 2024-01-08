@@ -11,7 +11,7 @@ services:
       - "8000:8000"
     volumes:
       - static_volume:/app/staticfiles
-      - media_volume:/app/images
+      - media_volume:/app/media
       - logs:/app/logs
     env_file:
       - .env  # This line tells docker-compose to use variables from .env file
