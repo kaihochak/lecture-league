@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-b&u-2lage1hr(#ld(9c
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'  # Set to False in production
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost').split(',')  # Set your production domain here
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,lecture-league.onrender.com').split(',')
 
 # Application definition
 
