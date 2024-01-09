@@ -107,7 +107,7 @@ function CreateReview() {
     // Fetch course data
     if (courseName) {
       const decodedCourseName = decodeURIComponent(courseName);
-      fetch(`http://localhost:8000/api/Course/${decodedCourseName}/`, {
+      fetch(`http://localhost/api/Course/${decodedCourseName}/`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

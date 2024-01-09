@@ -53,7 +53,7 @@ function OverallCourseReviews() {
     useEffect(() => {
         if (courseName) {
             const decodedCourseName = decodeURIComponent(courseName);
-            fetch(`http://localhost:8000/api/Course/${decodedCourseName}/`, {
+            fetch(`http://localhost/api/Course/${decodedCourseName}/`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ function OverallCourseReviews() {
 
 
             // Fetching reviews
-            fetch(`http://localhost:8000/api/Review/?course=${decodedCourseName}`, {
+            fetch(`http://localhost/api/Review/?course=${decodedCourseName}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

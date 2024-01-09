@@ -21,7 +21,7 @@ const MyReviews = () => {
     const { username } = useContext(UserContext);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/Review/?user=${username}`, {
+        fetch(`http://localhost/api/Review/?user=${username}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

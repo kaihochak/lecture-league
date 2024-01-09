@@ -98,7 +98,7 @@ const LoginPage = (props) => {
                 </div>
                 <br />
                 <button onClick = {loginBtn} className="loginButton">Login</button>
-                <a href="http://localhost:8000/admin" className=" mt-4 text-lg font-bold" target="_blank">Login as Admin</a>
+                <a href="http://localhost/admin" className=" mt-4 text-lg font-bold" target="_blank">Login as Admin</a>
                 
             </div>
         </div>

@@ -15,7 +15,7 @@ To run the application without Docker:
 3. In the other terminal, navigate to `/Frontend/lecture-league/` run: `npm start`.
 
 ### Admin Page
-For the admin page, visit `localhost:8000`.
+For the admin page, visit `localhost`.
 
 **Credentials:**
 - Username: `admin`

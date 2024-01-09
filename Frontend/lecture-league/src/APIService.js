@@ -4,7 +4,7 @@ export default class APIService {
     static LoginUser(body){
 
         console.log(body);
-        return fetch(`http://localhost:8000/auth/`, {
+        return fetch(`http://localhost/auth/`, {
             'method': 'POST',
             headers: {
               'Content-Type':'application/json',
@@ -15,7 +15,7 @@ export default class APIService {
     static RegisterUser(body) {
         console.log(body);
     
-        return fetch(`http://localhost:8000/api/users/`, {
+        return fetch(`http://localhost/api/users/`, {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
@@ -55,7 +55,7 @@ export default class APIService {
     }
     
     static InsertReview(body, token){
-        return fetch(`http://localhost:8000/api/Review/`, {
+        return fetch(`http://localhost/api/Review/`, {
             'method': 'POST',
             headers: {
               'Content-Type':'application/json',
@@ -66,7 +66,7 @@ export default class APIService {
     }
 
     static UpdateReview(body, id){
-        return fetch(`http://localhost:8000/api/Review/${id}/`, {
+        return fetch(`http://localhost/api/Review/${id}/`, {
             'method': 'PUT',
             headers: {
               'Content-Type':'application/json',
@@ -77,7 +77,7 @@ export default class APIService {
     }
 
     static DeleteReview(id){
-        return fetch(`http://localhost:8000/api/Review/${id}/`, {
+        return fetch(`http://localhost/api/Review/${id}/`, {
             'method': 'DELETE',
             headers: {
               'Content-Type':'application/json',
@@ -90,7 +90,7 @@ export default class APIService {
 
         console.log(username);
 
-        return fetch(`http://localhost:8000/api/users/${username}/`, {
+        return fetch(`http://localhost/api/users/${username}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ export default class APIService {
 
     static async UpdateUserProfile(token, username, field, value, onSuccess, onError){
         try {
-            const response = await fetch(`http://localhost:8000/api/users/${username}/`, { 
+            const response = await fetch(`http://localhost/api/users/${username}/`, { 
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ export default class APIService {
 
     static async ChangePassword(token, username, oldPassword, onSuccess, onError){
         try {
-            const response = await fetch(`http://localhost:8000/api/users/${username}/`, {
+            const response = await fetch(`http://localhost/api/users/${username}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ export default class APIService {
     // get a uni
     static  async GetUniversityData(universityName, onSuccess, onError){
         try {
-            const response = await fetch(`http://localhost:8000/api/University/${universityName}/`, {
+            const response = await fetch(`http://localhost/api/University/${universityName}/`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -195,7 +195,7 @@ export default class APIService {
 
     static async GetCourseData(decodedUniversityName, onSuccess, onError){
         try {
-            const response = await fetch(`http://localhost:8000/api/Course/?university=${decodedUniversityName}`, {
+            const response = await fetch(`http://localhost/api/Course/?university=${decodedUniversityName}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
