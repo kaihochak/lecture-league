@@ -50,12 +50,12 @@ To understand how to use the app and its features, refer to the below images. Th
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front2.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm2.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front3.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm3.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
 </table>
 
@@ -73,12 +73,12 @@ To understand how to use the app and its features, refer to the below images. Th
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/unim1.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/uni1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/unim1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/uni2.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/unim2.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/uni1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/unim1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/uni3.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/unim3.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/uni4.png" alt="HomeScreen" height="450"></td>
@@ -107,12 +107,12 @@ To understand how to use the app and its features, refer to the below images. Th
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/coursem1.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/course1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/coursem1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/course2.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/coursem2.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/course1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/coursem1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/course3.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/coursem3.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/course4.png" alt="HomeScreen" height="450"></td>
@@ -150,12 +150,12 @@ To understand how to use the app and its features, refer to the below images. Th
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/reviewm1.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/review1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/reviewm1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/review2.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/reviewm2.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/review1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/reviewm1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/review3.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/reviewm3.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/review4.png" alt="HomeScreen" height="450"></td>
@@ -177,12 +177,12 @@ To understand how to use the app and its features, refer to the below images. Th
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profilem1.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profile1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profilem1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profile2.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profilem2.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profile1.png" alt="HomeScreen" height="450"></td>
-    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profilem1.png" alt="HomeScreen Mobile" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profile3.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profilem3.png" alt="HomeScreen Mobile" height="450"></td>
   </tr>
   <tr>
     <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profile4.png" alt="HomeScreen" height="450"></td>
@@ -211,9 +211,17 @@ To understand how to use the app and its features, refer to the below images. Th
 </table>
 
 <!-- Original Design -->
-<p align="center">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profileold.png" alt="Original HomeScreen" height="450">
-</p>
+<table align="center">
+  <tr>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profileold.png" alt="HomeScreen" height="450"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profileold2.png" alt="HomeScreen" height="450"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/profileold3.png" alt="HomeScreen" height="450"></td>
+  </tr>
+</table>
 
 ## Contributing
 
