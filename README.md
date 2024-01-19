@@ -11,8 +11,8 @@
 The inception was driven by a pressing need to address the time constraints that impacted our earlier design. The original version, while functional, had several frontend aspects that we couldn't fully develop due to limited time. Recognizing this, I spearheaded a comprehensive redesign of the frontend, with a specific focus on enhancing the user experience and interface. This redesign wasn't just an aesthetic overhaul; it was a strategic move to incorporate and complete the essential frontend features that our team initially envisioned but couldn't implement.
 
 <p align="center">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" width="400">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="400">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="500">
 </p>
 
 In Lecture League, the user experience and interface have been reimagined and executed with a high level of precision and attention to detail, making the application more intuitive and user-friendly. Further information about the specific UX/UI improvements can be found in the "Usage" section of this documentation.
@@ -44,7 +44,16 @@ To understand how to use the app and its features, refer to the below images. Th
 
 - Home Screen
 
-<img src="https://github.com/kaihochak/PickAFilm/blob/master/assets/images/RPReplay_Final1693035745.gif?raw=true" alt="HomeScreen" width="300">
+<p align="center">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front2.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm2.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front3.png" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm3.png" alt="HomeScreen" width="500">
+</p>
+
 
 - University Screen 
 
