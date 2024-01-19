@@ -159,7 +159,7 @@ function UniversityPage() {
       </div>
 
       {/* Search Filter */}
-      <div className="flex flex-col xs:flex-row  w-[80%] gap-x-4 gap-y-2 mx-auto my-4 items-center">
+      <div className="flex flex-col xs:flex-row w-[80%] xl:w-auto gap-x-4 gap-y-2 mx-auto my-4 items-center">
         {/* Course Code */}
         <Select onValueChange={(value) => setCourseCode(value)} >
           <SelectTrigger className="w-[150px] sm:w-[280px] text-xs md:text-md">
