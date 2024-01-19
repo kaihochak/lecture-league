@@ -1,20 +1,23 @@
 # lecture-league
 
-## Description
-
 <p align="center">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="600">
 </p>
 
+## Description
+
 **Lecture League** is a dynamic and responsive web application that serves as a platform for students to review and rate academic courses. This project is an evolution of the original "Rate My Course" app, which can be found [here](https://github.com/mrmallam/Rate_My_Course). My contribution to this earlier version was primarily focused on the backend development, along with frontend features such as the search bar and API services.
 
+<p align="center">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" width="600">
+</p>
 
 
 For Lecture League, I undertook a comprehensive redesign of the frontend, greatly enhancing the user experience and user interface. The new UX/UI is crafted with meticulous attention to detail, providing a seamless and intuitive experience for users. More details about the UX/UI changes and their impact are available in the "Usage" section of this documentation.
 
 Under the hood, Lecture League is built using a robust stack that includes React JS, Tailwind CSS for responsive design, Django as the backend framework, and SQLite for database management. The app is specifically designed for students to share their insights and feedback on various courses, fostering an informed and engaged academic community.
 
-In terms of deployment, the application is fully containerized using Docker. This encapsulation includes separate containers for the Frontend, Backend, and NGINX, ensuring streamlined deployment and scalability. To stay updated with the latest developments and enhancements of Lecture League, please visit my personal website: [kaihochak.github](https://kaihochak.github).
+In terms of deployment, the application is fully containerized using Docker. This encapsulation includes separate containers for the Frontend, Backend, and NGINX, ensuring streamlined deployment and scalability. To stay updated with the latest developments and enhancements of Lecture League, please visit my website: [kaihochak.github](https://kaihochak.github).
 
 
 ## Installation
