@@ -2,9 +2,13 @@
 
 ## Description
 
-<img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen">
+<p align="center">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="600">
+</p>
 
-**Lecture League** is a dynamic and responsive web application that serves as a platform for students to review and rate academic courses. This project is an evolution of the original "Rate My Course" app, which can be found [here](https://github.com/mrmallam/Rate_My_Course). My contribution to this earlier version was primarily focused on the backend development, along with key frontend features such as the search bar and API services.
+**Lecture League** is a dynamic and responsive web application that serves as a platform for students to review and rate academic courses. This project is an evolution of the original "Rate My Course" app, which can be found [here](https://github.com/mrmallam/Rate_My_Course). My contribution to this earlier version was primarily focused on the backend development, along with frontend features such as the search bar and API services.
+
+
 
 For Lecture League, I undertook a comprehensive redesign of the frontend, greatly enhancing the user experience and user interface. The new UX/UI is crafted with meticulous attention to detail, providing a seamless and intuitive experience for users. More details about the UX/UI changes and their impact are available in the "Usage" section of this documentation.
 
