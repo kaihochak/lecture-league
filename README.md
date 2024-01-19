@@ -10,6 +10,7 @@
 
 <p align="center">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" width="600">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="600">
 </p>
 
 
