@@ -44,19 +44,20 @@ To understand how to use the app and its features, refer to the below images. Th
 
 - Home Screen
 
-<p align="center">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450" >
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" height="450">
+<p align="start">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" style="max-height: 450; width: auto;" >
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" style="max-height: 450; width: auto;">
 </p>
-<p align="center">
+<p align="start">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" height="450">
 </p>
-<p align="center">
+<p align="start">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450" >
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" height="450">
 </p>
-Original design:
+- Original design:
+
 <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" height="450" >
   
 
