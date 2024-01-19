@@ -4,8 +4,7 @@
 Navigate to the root folder where the `docker-compose.yml` file is located.
 
 Run the following commands: 
-- `docker-compose build`
-- `docker-compose up`
+- `docker-compose up --build`
 
 Access the application at `localhost:3000`.
    
