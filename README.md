@@ -36,7 +36,7 @@ For the admin page, visit `localhost/admin`.
 - Username: `kai`
 - Password: `123`
 
-**Note:** From the admin page, you can manage users, reviews, add universities, add courses, and everything els
+**Note:** From the admin page, you can manage users, reviews, add universities, add courses, and everything else
 
 ## Usage
 
@@ -44,22 +44,25 @@ To understand how to use the app and its features, refer to the below images. Th
 
 - Home Screen
 
-<p align="start">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" style="max-height: 450; width: auto;" >
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" style="max-height: 450; width: auto;">
-</p>
-<p align="start">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" height="450">
-</p>
-<p align="start">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450" >
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" height="450">
-</p>
-- Original design:
+<table align="center">
+  <tr>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen Mobile" height="450"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen Mobile" height="450"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="450"></td>
+    <td><img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen Mobile" height="450"></td>
+  </tr>
+</table>
 
-<img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" height="450" >
-  
+<!-- Original Design -->
+<p align="center">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="Original HomeScreen" height="450">
+</p>
 
 
 - University Screen 
