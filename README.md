@@ -247,7 +247,7 @@ The development of Lecture League was also inspired by the following platforms, 
 
 ### Acknowledgements
 
-Special thanks to Professor Steve Sutcliffe and TA Seyed Namimodarressi from the SENG 513 Web-Based Systems course at the University of Calgary in 2023. Their immense support, guidance, and expertise have been pivotal in the evolution of this project.
+Special thanks to Professor Steve Sutcliffe and TA Seyed Nami Modarressi from the SENG 513 Web-Based Systems course at the University of Calgary in 2023. Their immense support, guidance, and expertise have been pivotal in the evolution of this project.
 
 
 ## Contact Information
