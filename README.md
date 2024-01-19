@@ -46,13 +46,14 @@ To understand how to use the app and its features, refer to the below images. Th
 
 <p align="center">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontold.png" alt="HomeScreen" width="500">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="500">
-  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" width="500">
+</p>
+
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" height="200" width="500">
+  <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm1.png" alt="HomeScreen" height="200">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front2.png" alt="HomeScreen" width="500">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm2.png" alt="HomeScreen" width="500">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front3.png" alt="HomeScreen" width="500">
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/frontm3.png" alt="HomeScreen" width="500">
-</p>
 
 
 - University Screen 
