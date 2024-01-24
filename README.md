@@ -21,7 +21,7 @@ In Lecture League, the user experience and interface have been reimagined and ex
 
 The tech stack for Lecture League includes React JS, Tailwind CSS, Django, and SQLite, creating a robust and scalable application. The primary aim of the app remains to serve as a platform for students to review and discuss academic courses, fostering a collaborative and informed educational community.
 
-For deployment purposes, Lecture League is fully containerized using Docker, segregated into Frontend, Backend, and NGINX containers. This setup ensures efficient deployment and scalability. Stay updated with the latest developments of Lecture League by visiting the personal website: [kaihochak.github](https://kaihochak.github).
+For deployment purposes, Lecture League is fully containerized using Docker, segregated into Frontend, Backend, and NGINX containers. This setup ensures efficient deployment and scalability. Stay updated with the latest developments of Lecture League by visiting the personal website: https://kaihochak.github.io/
 
 ## Installation
 
@@ -64,7 +64,7 @@ The development of Lecture League was also inspired by the following platforms, 
 
 ### Acknowledgements
 
-Special thanks to Professor Steve Sutcliffe and TA Seyed Namimodarressi from the SENG 513 Web-Based Systems course at the University of Calgary in 2023. Their immense support, guidance, and expertise have been pivotal in the evolution of this project.
+Special thanks to Professor Steve Sutcliffe and TA Seyed Nami Modarressi from the SENG 513 Web-Based Systems course at the University of Calgary in 2023. Their immense support, guidance, and expertise have been pivotal in the evolution of this project.
 
 
 ## Contact Information
