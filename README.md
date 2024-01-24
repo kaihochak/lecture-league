@@ -4,7 +4,7 @@
   <img src="https://github.com/kaihochak/lecture-league/blob/main/screenshots/front1.png" alt="HomeScreen" width="600">
 </p>
 
-## **Please check out my blog post for this project [here](https://kaichak.com/lecture-league-page).**
+### **For more information, please check out my blog post for this project [here](https://kaichak.com/lecture-league-page).**
 
 ## Description
 
