@@ -14,10 +14,13 @@ The inception was driven by a pressing need to address the time constraints that
 
 <p align="center">
   <img src="https://github.com/kaihochak/lecture-league-page/blob/main/src/images/gifs/reviews.gif" alt="HomeScreen" width="500">
-  <img src="https://github.com/kaihochak/lecture-league-page/blob/main/src/images/gifs/course.gif" alt="HomeScreen" width="500">
 </p>
 
 In Lecture League, the user experience and interface have been reimagined and executed with a high level of precision and attention to detail, making the application more intuitive and user-friendly. Further information about the specific UX/UI improvements can be found in the "Usage" section of this documentation.
+
+<p align="center">
+  <img src="https://github.com/kaihochak/lecture-league-page/blob/main/src/images/gifs/course.gif" alt="HomeScreen" width="500">
+</p>
 
 The tech stack for Lecture League includes React JS, Tailwind CSS, Django, and SQLite, creating a robust and scalable application. The primary aim of the app remains to serve as a platform for students to review and discuss academic courses, fostering a collaborative and informed educational community.
 
