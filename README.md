@@ -13,8 +13,8 @@
 The inception was driven by a pressing need to address the time constraints that impacted our earlier design. The original version, while functional, had several frontend aspects that we couldn't fully develop due to limited time. Recognizing this, I spearheaded a comprehensive redesign of the frontend, with a specific focus on enhancing the user experience and interface. This redesign wasn't just an aesthetic overhaul; it was a strategic move to incorporate and complete the essential frontend features that our team initially envisioned but couldn't implement.
 
 <p align="center">
-  <img src="https://github.com/kaihochak/lecture-league-page/main/blob/src/images/gifs/reviews.gif" alt="HomeScreen" width="500">
-  <img src="https://github.com/kaihochak/lecture-league-page/main/blob/src/images/gifs/course.gif" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league-page/blob/main/src/images/gifs/reviews.gif" alt="HomeScreen" width="500">
+  <img src="https://github.com/kaihochak/lecture-league-page/blob/main/src/images/gifs/course.gif" alt="HomeScreen" width="500">
 </p>
 
 In Lecture League, the user experience and interface have been reimagined and executed with a high level of precision and attention to detail, making the application more intuitive and user-friendly. Further information about the specific UX/UI improvements can be found in the "Usage" section of this documentation.
