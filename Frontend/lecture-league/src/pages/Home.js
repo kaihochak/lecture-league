@@ -12,7 +12,7 @@ function LandingPage() {
 
   // Effect to fetch data from the API
   useEffect(() => {
-    fetch('http://localhost/api/University/', {
+    fetch('http://localhost:8000/api/University/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
