@@ -152,79 +152,71 @@ function OverallCourseReviews() {
     };
 
     return (
-        <div>
+        <div className=''>
             <Header />
-            <div className='flex flex-col font-Montserrat justify-center mt-5 mx-10 md:mx-10'>
+            <div className='max-w-[1200px] flex flex-col font-Montserrat justify-center mt-5 mx-10 md:mx-10 lg:mx-auto '>
 
                 {/* course info */}
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger>
-                            <div className='flex items-center'>
-                                <div className="w-12 md:w-12 m-2">
-                                    {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
-                                </div>
-                                <div className='flex flex-col ml-4 text-left'>
-                                    <div className="text-base sm:text-2xl">{course.name}</div>
-                                    <div className="text-xs xs:text-sm sm:text-xl">{course.title}</div>
-                                </div>
+                <div className='flex items-center'>
+                    <div className="w-12 md:w-12 m-2">
+                        {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
+                    </div>
+                    <div className='flex flex-col ml-4 text-left'>
+                        <div className="text-base sm:text-2xl">{course.name}</div>
+                        <div className="text-xs xs:text-sm sm:text-xl">{course.title}</div>
+                    </div>
+                </div>
+                <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
+                    {/* Course Description */}
+                    <div className='md:w-[70%]'>
+                        <div className="text-md ftext-left">{course.description}</div>
+                    </div>
+                    {/* ratings */}
+                    <div className='text-xs sm:text-sm mt-6 md:mt-0 md:mr-10'>
+                        {/* Difficult */}
+                        <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                            <div className='font-semibold w-26'>Difficulty </div>
+                            <div className='flex justify-between items-center'>
+                                <Rating
+                                    name="text-feedback"
+                                    value={course.average_difficulty}
+                                    readOnly
+                                    precision={0.1}
+                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                />
+                                <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
                             </div>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
-                                {/* Course Description */}
-                                <div className='md:w-[70%]'>
-                                    <div className="text-md ftext-left">{course.description}</div>
-                                </div>
-                                {/* ratings */}
-                                <div className='text-xs sm:text-sm mt-6 md:mt-0 md:mr-10'>
-                                    {/* Difficult */}
-                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
-                                        <div className='font-semibold w-26'>Difficulty </div>
-                                        <div className='flex justify-between items-center'>
-                                            <Rating
-                                                name="text-feedback"
-                                                value={course.average_difficulty}
-                                                readOnly
-                                                precision={0.1}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
-                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
-                                        </div>
-                                    </div>
-                                    {/* Workload */}
-                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
-                                        <div className='font-semibold w-26'>Workload </div>
-                                        <div className='flex justify-between items-center'>
-                                            <Rating
-                                                name="text-feedback"
-                                                value={course.average_workload}
-                                                readOnly
-                                                precision={0.1}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
-                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
-                                        </div>
-                                    </div>
-                                    {/* Usefulness */}
-                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
-                                        <div className='font-semibold w-26'>Usefulness </div>
-                                        <div className='flex justify-between items-center'>
-                                            <Rating
-                                                name="text-feedback"
-                                                value={course.average_usefulness}
-                                                readOnly
-                                                precision={0.1}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
-                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        {/* Workload */}
+                        <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                            <div className='font-semibold w-26'>Workload </div>
+                            <div className='flex justify-between items-center'>
+                                <Rating
+                                    name="text-feedback"
+                                    value={course.average_workload}
+                                    readOnly
+                                    precision={0.1}
+                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                />
+                                <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
                             </div>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                        </div>
+                        {/* Usefulness */}
+                        <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                            <div className='font-semibold w-26'>Usefulness </div>
+                            <div className='flex justify-between items-center'>
+                                <Rating
+                                    name="text-feedback"
+                                    value={course.average_usefulness}
+                                    readOnly
+                                    precision={0.1}
+                                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                />
+                                <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div className='flex mb-4 justify-between items-center mt-6'>
                     {/* number of reviews only visible on desktop */}
