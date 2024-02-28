@@ -154,137 +154,131 @@ function OverallCourseReviews() {
     return (
         <div>
             <Header />
-            <div className='flex flex-col font-Montserrat justify-center mt-5 mx-10 md:mx-10'>
+            <div className='max-w-[1600px] mx-auto'>
+                <div className='flex flex-col font-Montserrat justify-center mt-5 mx-10 md:mx-10'>
 
-                {/* course info */}
-                <Accordion type="single" collapsible>
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger>
-                            <div className='flex items-center'>
-                                <div className="w-12 md:w-12 m-2">
-                                    {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
-                                </div>
-                                <div className='flex flex-col ml-4 text-left'>
-                                    <div className="text-base sm:text-2xl">{course.name}</div>
-                                    <div className="text-xs xs:text-sm sm:text-xl">{course.title}</div>
-                                </div>
-                            </div>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
-                                {/* Course Description */}
-                                <div className='md:w-[70%]'>
-                                    <div className="text-md ftext-left">{course.description}</div>
-                                </div>
-                                {/* ratings */}
-                                <div className='text-xs sm:text-sm mt-6 md:mt-0 md:mr-10'>
-                                    {/* Difficult */}
-                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
-                                        <div className='font-semibold w-26'>Difficulty </div>
-                                        <div className='flex justify-between items-center'>
-                                            <Rating
-                                                name="text-feedback"
-                                                value={course.average_difficulty}
-                                                readOnly
-                                                precision={0.1}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
-                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
-                                        </div>
-                                    </div>
-                                    {/* Workload */}
-                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
-                                        <div className='font-semibold w-26'>Workload </div>
-                                        <div className='flex justify-between items-center'>
-                                            <Rating
-                                                name="text-feedback"
-                                                value={course.average_workload}
-                                                readOnly
-                                                precision={0.1}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
-                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
-                                        </div>
-                                    </div>
-                                    {/* Usefulness */}
-                                    <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
-                                        <div className='font-semibold w-26'>Usefulness </div>
-                                        <div className='flex justify-between items-center'>
-                                            <Rating
-                                                name="text-feedback"
-                                                value={course.average_usefulness}
-                                                readOnly
-                                                precision={0.1}
-                                                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                                            />
-                                            <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-
-                <div className='flex mb-4 justify-between items-center mt-6'>
-                    {/* number of reviews only visible on desktop */}
-                    <div className="hidden sm:block text-sm md:text-md text-black">{reviewResponseCount} Reviews</div>
-
-                    <div className='flex justify-between sm:justify-end gap-x-4 text-sm mx-auto sm:mx-0'>
-
-                        {/* Newest Posts */}
-                        <div className='flex flex-col sm:flex-row gap-y-2 gap-x-2 items-center'>
-                            <label className="switch">
-                                <input type="checkbox" checked={sortedByDate} onChange={handleDateSortingToggle} />
-                                <span className="slider round"></span>
-                            </label>
-                            <div className='text-xs sm:text-sm ml-1'>Latest</div>
+                    {/* course info */}
+                    <div className='flex items-center'>
+                        <div className="w-12 md:w-12 m-2">
+                            {uniLogo && <img src={uniLogo} className="h-16 md:h-20 object-contain" alt='logo' />}
                         </div>
-
-                        {/* Top Rated */}
-                        <div className='flex flex-col sm:flex-row gap-y-2 gap-x-2 items-center'>
-                            <label className="switch">
-                                <input type="checkbox" checked={sortedByLikes} onChange={handleLikesSortingToggle} />
-                                <span className="slider round"></span>
-                            </label>
-                            <div className='text-xs sm:text-sm ml-1'>Top Rated</div>
+                        <div className='flex flex-col ml-4 text-left'>
+                            <div className="text-base sm:text-2xl">{course.name}</div>
+                            <div className="text-xs xs:text-sm sm:text-xl">{course.title}</div>
                         </div>
-
-                        {/* by Professors */}
-                        <Select onValueChange={(value) => setSelectedProfessor(value)}>
-                            <SelectTrigger className="w-[80px] xs:w-[100px] sm:w-[180px] text-m-xs self-center">
-                                <SelectValue placeholder="Professor" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectGroup >
-                                    <SelectLabel>Professor</SelectLabel>
-                                    {professorsList.map((professor) => (
-                                        <SelectItem key={professor} value={professor}>
-                                            {professor}
-                                        </SelectItem>
-                                    ))}
-                                </SelectGroup>
-                            </SelectContent>
-                        </Select>
-
-                        {/* bookmark */}
-                        <div className='flex flex-row items-center'>
-                            <div onClick={handleBookmarkClick} className=''>
-                                <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="h-4 sm:h-6 md:h-8 w-4 sm:w-6 md:w-8  cursor-pointer" alt="book-mark" />
+                    </div>
+                    <div className='flex flex-col md:flex-row ml-4 justify-between mx-6'>
+                        {/* Course Description */}
+                        <div className='md:w-[70%]'>
+                            <div className="text-md ftext-left">{course.description}</div>
+                        </div>
+                        {/* ratings */}
+                        <div className='text-xs sm:text-sm mt-6 md:mt-0 md:mr-10'>
+                            {/* Difficult */}
+                            <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                                <div className='font-semibold w-26'>Difficulty </div>
+                                <div className='flex justify-between items-center'>
+                                    <Rating
+                                        name="text-feedback"
+                                        value={course.average_difficulty}
+                                        readOnly
+                                        precision={0.1}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    <Box className="w-8" sx={{ ml: 2 }}>{course.average_difficulty}</Box>
+                                </div>
                             </div>
-                            <div className='ml-2 align-middle'>
+                            {/* Workload */}
+                            <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                                <div className='font-semibold w-26'>Workload </div>
+                                <div className='flex justify-between items-center'>
+                                    <Rating
+                                        name="text-feedback"
+                                        value={course.average_workload}
+                                        readOnly
+                                        precision={0.1}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    <Box className="w-8" sx={{ ml: 2 }}>{course.average_workload}</Box>
+                                </div>
+                            </div>
+                            {/* Usefulness */}
+                            <div className='flex justify-between gap-x-1 sm:gap-x-6 items-center'>
+                                <div className='font-semibold w-26'>Usefulness </div>
+                                <div className='flex justify-between items-center'>
+                                    <Rating
+                                        name="text-feedback"
+                                        value={course.average_usefulness}
+                                        readOnly
+                                        precision={0.1}
+                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                    />
+                                    <Box className="w-8" sx={{ ml: 2 }}>{course.average_usefulness}</Box>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div className='flex mb-4 justify-between items-center mt-6'>
+                        {/* number of reviews only visible on desktop */}
+                        <div className="hidden sm:block text-sm md:text-md text-black">{reviewResponseCount} Reviews</div>
+
+                        <div className='flex justify-between sm:justify-end gap-x-4 text-sm mx-auto sm:mx-0'>
+
+                            {/* Newest Posts */}
+                            <div className='flex flex-col sm:flex-row gap-y-2 gap-x-2 items-center'>
+                                <label className="switch">
+                                    <input type="checkbox" checked={sortedByDate} onChange={handleDateSortingToggle} />
+                                    <span className="slider round"></span>
+                                </label>
+                                <div className='text-xs sm:text-sm ml-1'>Latest</div>
+                            </div>
+
+                            {/* Top Rated */}
+                            <div className='flex flex-col sm:flex-row gap-y-2 gap-x-2 items-center'>
+                                <label className="switch">
+                                    <input type="checkbox" checked={sortedByLikes} onChange={handleLikesSortingToggle} />
+                                    <span className="slider round"></span>
+                                </label>
+                                <div className='text-xs sm:text-sm ml-1'>Top Rated</div>
+                            </div>
+
+                            {/* by Professors */}
+                            <Select onValueChange={(value) => setSelectedProfessor(value)}>
+                                <SelectTrigger className="w-[80px] xs:w-[100px] sm:w-[180px] text-m-xs self-center">
+                                    <SelectValue placeholder="Professor" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup >
+                                        <SelectLabel>Professor</SelectLabel>
+                                        {professorsList.map((professor) => (
+                                            <SelectItem key={professor} value={professor}>
+                                                {professor}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+
+                            {/* bookmark */}
+                            <div className='flex flex-row items-center'>
+                                <div onClick={handleBookmarkClick} className=''>
+                                    <img src={bookMarkClicked ? bookMark : bookMarkBlank} className="h-4 sm:h-6 md:h-8 w-4 sm:w-6 md:w-8  cursor-pointer" alt="book-mark" />
+                                </div>
+                                <div className='ml-2 align-middle'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {filteredReviews.map((review, index) => (
+                        <ReviewDiv isEditable={false} data={review} index={index} key={review.id} />
+                    ))}
+
+                    <Link className="mx-auto" to={`/review/${encodeURIComponent(courseName)}`}>
+                        <Button className="h-10 w-30 sm:h-20 sm:w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
+                    </Link>
                 </div>
-
-                {filteredReviews.map((review, index) => (
-                    <ReviewDiv isEditable={false} data={review} index={index} key={review.id} />
-                ))}
-
-                <Link className="mx-auto" to={`/review/${encodeURIComponent(courseName)}`}>
-                    <Button className="h-10 w-30 sm:h-20 sm:w-64 mt-4 mb-20 text-md" variant="secondary">Leave a New Review</Button>
-                </Link>
             </div>
         </div>
     );
